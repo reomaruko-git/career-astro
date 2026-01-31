@@ -1,0 +1,74 @@
+/* src/styles/global.css */
+@import "tailwindcss";
+
+@theme {
+  /* ▼ カスタムカラー  */
+  --color-primary: #0ea5e9;       /* 信頼のブルー */
+  --color-primary-hover: #0284c7;
+  --color-secondary: #fc6387;     /* アクセントピンク */
+  --color-accent: #f97316;        /* コンバージョン色（オレンジ） */
+  
+  --color-text: #334155;
+  --color-sub-text: #64748b;
+  --color-bg-warm: #f0f9ff;
+  
+  /* ▼ フォント設定 */
+  --font-sans: "LINE Seed JP", "Zen Kaku Gothic New", sans-serif;
+
+  /* ▼ 影の設定 */
+  --shadow-soft: 0 10px 40px -10px rgba(14, 165, 233, 0.08);
+  --shadow-card: 0 4px 6px -1px rgba(14, 165, 233, 0.05);
+}
+
+@layer base {
+  /* LINE Seed JPなどのフォント読み込みは維持 */
+  body {
+    font-family: var(--font-sans);
+    color: var(--color-text);
+    background-color: #ffffff;
+    letter-spacing: 0.03em;
+  }
+}
+
+@layer components {
+  /* ★ CVボタン（光るエフェクト付き） */
+  .shiny-btn {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+  .shiny-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px -5px rgba(14, 165, 233, 0.4);
+  }
+  .shiny-btn::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transform: skewX(-25deg);
+    animation: shine 6s infinite;
+  }
+  @keyframes shine {
+    0% { left: -100%; }
+    10% { left: 100%; }
+    100% { left: 100%; }
+  }
+
+  /* ★ コンテンツカード（浮き上がる動き） */
+  .card-float {
+    background: white;
+    border-radius: 1rem;
+    box-shadow: var(--shadow-card);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(14, 165, 233, 0.1);
+  }
+  .card-float:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 30px -10px rgba(14, 165, 233, 0.15);
+    border-color: var(--color-primary);
+  }
+}

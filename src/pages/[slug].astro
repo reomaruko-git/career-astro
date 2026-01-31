@@ -1,0 +1,85 @@
+---
+// src/pages/[slug].astro
+import { getCollection } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+
+// 全LPのパスを生成
+export async function getStaticPaths() {
+  const lps = await getCollection('lps');
+  return lps.map(entry => ({
+    params: { slug: entry.slug }, props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+const data = entry.data;
+const cushionUrl = `/link/${entry.slug}`; // クッションページへのリンク
+---
+
+<Layout title={data.title} description={data.description}>
+  
+  <header class="fixed w-full z-50 bg-white/95 backdrop-blur shadow-sm h-16 flex items-center justify-between px-4 md:px-8">
+    <div class="font-bold text-xl text-primary tracking-tighter">Geekly</div>
+    <a href={cushionUrl} class="bg-accent hover:bg-orange-600 text-white text-sm font-bold py-2 px-5 rounded-full shadow-lg transition-all shiny-btn">
+      無料相談
+    </a>
+  </header>
+
+  <section class="relative pt-24 pb-20 overflow-hidden">
+    <div class="absolute inset-0 bg-slate-900">
+        <img src={data.images.mv} alt="Main Visual" class="w-full h-full object-cover opacity-60" />
+    </div>
+    <div class="relative z-10 max-w-4xl mx-auto px-4 text-center text-white">
+      <h1 class="text-2xl md:text-5xl font-bold leading-tight mb-6 drop-shadow-lg">
+        {data.texts.mvCatch}
+      </h1>
+      <p class="text-lg md:text-xl text-sky-100 mb-10 font-bold">
+        {data.texts.mvSub}
+      </p>
+      <a href={cushionUrl} class="inline-block bg-primary hover:bg-primary-hover text-white font-bold py-4 px-10 rounded-full text-xl shadow-xl transition-transform hover:scale-105 shiny-btn border-2 border-white/20">
+        {data.texts.buttonText}
+        <i class="fas fa-chevron-right ml-2 text-sm"></i>
+      </a>
+    </div>
+  </section>
+
+  <main class="py-16 bg-bg-warm px-4">
+    <div class="max-w-3xl mx-auto">
+        <div class="card-float p-8 md:p-10 mb-12">
+            <h2 class="text-center text-2xl font-bold text-slate-800 mb-8 flex items-center justify-center">
+                <i class="fas fa-exclamation-circle text-secondary mr-3"></i>
+                こんな悩みありませんか？
+            </h2>
+            <div class="prose prose-slate max-w-none">
+                <Content />
+            </div>
+        </div>
+
+        <div class="bg-white rounded-2xl border-2 border-primary/20 p-8 shadow-sm">
+            <h3 class="text-center font-bold text-lg mb-6 text-primary">
+                対象となる方
+            </h3>
+            <ul class="space-y-3">
+                {data.targets.map((target) => (
+                    <li class="flex items-start font-bold text-slate-700">
+                        <i class="fas fa-check text-primary mt-1 mr-3"></i>
+                        {target}
+                    </li>
+                ))}
+            </ul>
+        </div>
+    </div>
+  </main>
+
+  <section class="py-16 bg-white text-center px-4 border-t border-slate-100">
+    <div class="max-w-2xl mx-auto">
+        <h2 class="text-2xl font-bold mb-6 text-slate-800">今すぐキャリアの可能性を広げよう</h2>
+        <a href={cushionUrl} class="inline-block bg-accent hover:bg-orange-600 text-white font-bold py-5 px-12 rounded-full text-xl shadow-xl shiny-btn animate-pulse">
+            {data.texts.buttonText}
+        </a>
+        <p class="mt-4 text-xs text-slate-500">※公式サイトへ安全に移動します</p>
+    </div>
+  </section>
+
+</Layout>

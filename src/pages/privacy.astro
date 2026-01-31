@@ -1,0 +1,75 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const title = "プライバシーポリシー";
+const description = "当サイトの個人情報の取り扱いについて。";
+---
+
+<Layout title={title} description={description}>
+    <main class="py-16 bg-slate-50 min-h-screen px-4">
+        <div class="max-w-4xl mx-auto bg-white rounded-2xl shadow-sm border border-slate-100 p-8 md:p-12">
+            <h1 class="text-2xl font-bold text-center mb-10 pb-4 border-b border-slate-100 text-slate-700">
+                プライバシーポリシー
+            </h1>
+
+            <div class="prose prose-slate max-w-none text-sm md:text-base leading-relaxed">
+                <p class="mb-6">
+                    [あなたのサイト名]（以下、「当サイト」と言います。）は、本ウェブサイト上で提供するサービスにおける、
+                    ユーザーの個人情報の取扱いについて、以下のとおりプライバシーポリシー（以下、「本ポリシー」と言います。）を定めます。
+                </p>
+
+                <h3 class="text-lg font-bold mt-8 mb-4 border-l-4 border-primary pl-3 text-slate-800">第1条（個人情報）</h3>
+                <p>
+                    「個人情報」とは、個人情報保護法にいう「個人情報」を指すものとし、生存する個人に関する情報であって、
+                    当該情報に含まれる氏名、生年月日、住所、電話番号、連絡先その他の記述等により特定の個人を識別できる情報を指します。
+                </p>
+
+                <h3 class="text-lg font-bold mt-8 mb-4 border-l-4 border-primary pl-3 text-slate-800">第2条（個人情報の収集方法）</h3>
+                <p>
+                    当サイトは、ユーザーがお問い合わせをする際に氏名、メールアドレスなどの個人情報をお尋ねすることがあります。
+                </p>
+
+                <h3 class="text-lg font-bold mt-8 mb-4 border-l-4 border-primary pl-3 text-slate-800">第3条（個人情報の利用目的）</h3>
+                <p>当サイトが個人情報を収集・利用する目的は、以下のとおりです。</p>
+                <ul class="list-disc ml-6 mt-2 mb-4 space-y-1">
+                    <li>当サイトのサービスの提供・運営のため</li>
+                    <li>ユーザーからのお問い合わせに回答するため（本人確認を行うことを含む）</li>
+                    <li>不正・不当な目的でサービスを利用しようとするユーザーの特定をし、ご利用をお断りするため</li>
+                </ul>
+
+                <h3 class="text-lg font-bold mt-8 mb-4 border-l-4 border-primary pl-3 text-slate-800">第4条（アクセス解析ツールについて）</h3>
+                <p>
+                    当サイトでは、Googleによるアクセス解析ツール「Googleアナリティクス」を利用しています。<br>
+                    このGoogleアナリティクスはトラフィックデータの収集のためにCookieを使用しています。
+                    このトラフィックデータは匿名で収集されており、個人を特定するものではありません。<br>
+                    この機能はCookieを無効にすることで収集を拒否することが出来ますので、お使いのブラウザの設定をご確認ください。
+                </p>
+
+                <h3 class="text-lg font-bold mt-8 mb-4 border-l-4 border-primary pl-3 text-slate-800">第5条（広告の配信について）</h3>
+                <p>
+                    当サイトは、アフィリエイトプログラムにより商品をご紹介致しております。<br>
+                    アフィリエイトプログラムとは、商品及びサービスの提供元と業務提携を 結び商品やサービスを紹介するインターネット上のシステムです。<br>
+                    従いまして、当サイトの商品は当サイトが販売している訳ではありません。
+                </p>
+                <p class="mt-4">
+                    お客様ご要望の商品、お支払い等はリンク先の販売店と直接のお取引となりますので、特定商取引法に基づく表記につきましてはリンク先をご確認頂けますようお願い致します。<br>
+                    商品の価格 商品の詳細 消費税 送料 在庫数等の詳細は時として変わる場合も御座います。<br>
+                    また、返品・返金保証に関しましてもリンク先の販売元が保証するものです。当サイトだけではなくリンク 先のサイトも良くご確認頂けますようお願い致します。
+                </p>
+
+                <h3 class="text-lg font-bold mt-8 mb-4 border-l-4 border-primary pl-3 text-slate-800">第6条（免責事項）</h3>
+                <p>
+                    当サイトの掲載情報をご利用頂く場合には、お客様のご判断と責任におきましてご利用頂けますようお願い致します。<br>
+                    当サイトを利用した、何らかのトラブルや損害、損失等につきましては、当サイトでは一切の責任を負いかねますのでご了承願います。
+                </p>
+
+                <h3 class="text-lg font-bold mt-8 mb-4 border-l-4 border-primary pl-3 text-slate-800">第7条（お問い合わせ窓口）</h3>
+                <p>本ポリシーに関するお問い合わせは、運営者情報ページに記載の連絡先までお願いいたします。</p>
+            </div>
+
+            <div class="mt-12 text-center">
+                <a href="/" class="text-primary hover:underline font-bold">← トップページへ戻る</a>
+            </div>
+        </div>
+    </main>
+</Layout>
