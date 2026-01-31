@@ -1,74 +1,118 @@
-# 🩺 看護師 Support.com LP Project
+# 🏭 PPC LP Factory (Powered by Astro v5)
 
-このプロジェクトは、看護師転職市場で利益を最大化するための比較型LP**「看護師 Support.com」**のリポジトリです。
-**Astro v5** と **Tailwind CSS v4** を採用し、広告運用（PPC）において最重要指標である「ページ表示速度（LCP）」と「成約率（CVR）」を極限まで追求した設計になっています。
+このリポジトリは、**PPCアフィリエイトLP量産システム**です。
 
-## 🛠 技術スタック
+**Astro v5 (Content Collections)** と **Tailwind CSS v4** を採用し、コードを書かずに「Markdown（テキスト）」と「画像」を追加するだけで、爆速かつ高品質なLPを無限に生成できます。
 
-- **Framework**: [Astro](https://astro.build) (v5) - 静的生成(SSG)による爆速表示
-- **Styling**: [Tailwind CSS](https://tailwindcss.com/) (v4) - メンテナンス性の高いスタイリング
-- **UI Library**: [Swiper](https://swiperjs.com/) (求人スライダー・口コミ用)
-- **Infrastructure**: **Mixhost (Litespeed Web Server)**
-- **Deployment**: **手動ビルド ➔ FTPアップロード**
+## ⚡️ このシステムの特徴
 
-## 📚 運用・戦略マニュアル
+- **📝 テキスト管理**: 案件ごとの文章はMarkdownで管理。HTMLを触る必要なし。
+- **🎨 デザイン継承**: 「看護師案件」で勝利したCVRの高いデザイン（光るボタン、カード型レイアウト）を全案件に自動適用。
+- **🔗 クッション自動生成**: アフィリエイトリンクへのスキップページ（`/link/案件ID`）を自動で作成。
+- **📱 モバイルファースト**: スマホユーザー（9割）に最適化したUI/UX。
 
-サイトの更新手順やPPC運用のレギュレーションについては、以下のドキュメントを確認してください。
-特に**「案件の提携解除」を防ぐためのPR表記**や**正確な求人数データ**の更新日は、広告出稿前に必ずチェックすること。
+---
 
-- [📖 看護師 Support.com サイト運用・更新マニュアル]()
+## 🚀 量産ワークフロー（1日10本目標）
 
-## 🚀 プロジェクト構造
+以下の手順で新しい案件を追加します。
 
-PPCのABテスト（訴求文やボタン色の変更）を行う際は、主に `src/pages/index.astro` を編集します。
+### 1. 画像の準備
+`public/assets/` フォルダ内に、案件ID（例: `geekly`）のフォルダを作成し、画像を配置します。
+- メインビジュアル: `mv.jpg`
+- 悩みの画像: `pain.jpg`
+
+### 2. 記事データの作成 (Markdown)
+`src/content/lps/` フォルダ内に、`案件ID.md`（例: `geekly.md`）を作成します。
+以下のテンプレートをコピペして中身を書き換えてください。
+
+```yaml
+---
+slug: "geekly"  # URLになります (例: /geekly)
+title: "IT・Web業界専門の転職支援 | Geekly"
+description: "ディスクリプションを入力"
+affiliateLink: "[https://px.a8.net/](https://px.a8.net/)..." # ASPのリンク
+primaryColor: "#0ea5e9" # 案件のメインカラー
+accentColor: "#f97316"  # ボタンの色（オレンジ推奨）
+
+images:
+  mv: "/assets/geekly/mv.jpg"
+  pain: "/assets/geekly/pain.jpg"
+
+texts:
+  mvCatch: "キャッチコピーを入力"
+  mvSub: "サブキャッチを入力"
+  buttonText: "公式サイトを見てみる"
+
+targets:
+  - "ターゲット条件1"
+  - "ターゲット条件2"
+---
+
+## Problem
+ここに「悩み」の文章を書く...
+
+## Solution
+ここに「解決策」の文章を書く...
+
+```
+
+### 3. デプロイ（公開）
+
+Gitにプッシュするだけで、連携したサーバー（Vercelなど）へ自動デプロイされます。
+
+```bash
+git add .
+git commit -m "Add: 新規案件(geekly)追加"
+git push origin main
+
+```
+
+---
+
+## 📂 プロジェクト構造
 
 ```text
 /
 ├── public/
-│   └── assets/
-│       └── images/      # 🖼️ 画像ファイル（WebP形式を強く推奨）
+│   └── assets/          # 🖼️ [重要] 案件ごとの画像フォルダ
+│       └── geekly/      # 例: geekly用の画像
 ├── src/
+│   ├── content/
+│   │   ├── config.ts    # ⚙️ 入力項目の定義ファイル
+│   │   └── lps/         # 📝 [重要] ここに .md ファイルを増やすだけ！
 │   ├── layouts/
-│   │   └── Layout.astro # 📐 共通レイアウト（GTM/タグマネージャーはここ）
+│   │   └── Layout.astro # 📐 共通レイアウト（GTM/タグはここ）
 │   ├── pages/
-│   │   ├── index.astro  # 🏠 LPメインコンテンツ（比較表・ボタンの修正はここ）
-│   │   ├── company.astro
-│   │   └── privacy.astro
+│   │   ├── [slug].astro # ⚙️ LP生成エンジン（触らなくてOK）
+│   │   ├── link/        # 🔗 クッションページ生成エンジン
+│   │   ├── company.astro # 🏢 運営者情報
+│   │   └── privacy.astro # 🛡️ プライバシーポリシー
 │   └── styles/
-│       └── global.css   # 🎨 Tailwind v4設定（ブランドカラーはここ）
-├── astro.config.mjs     # ⚙️ Astro設定
-└── package.json
+│       └── global.css   # 🎨 Tailwind設定（共通デザイン）
+└── astro.config.mjs
+
 ```
-
-## 🧞 コマンド一覧
-
-ターミナルで以下のコマンドを実行して開発・ビルドを行います。
-
-| コマンド          | 説明                                                                               |
-| :---------------- | :--------------------------------------------------------------------------------- |
-| `npm install`     | **最初のみ実行**。依存関係（node_modules）をインストールします。                   |
-| `npm run dev`     | **開発用サーバー起動**。`http://localhost:4321` でプレビューしながら編集できます。 |
-| `npm run build`   | **本番用ビルド**。`dist/` フォルダに公開用ファイルを生成します。                   |
-| `npm run preview` | ビルドされた `dist/` の内容をローカルで確認します。                                |
-
-## 📦 デプロイ手順
-
-MixhostはGit連携による自動デプロイではないため、以下の手順で手動反映を行います。
-
-本番ビルドの実行: ターミナルで npm run build を実行します。
-
-アップロードファイルの確認: 生成された dist/ フォルダの中身が最新であることを確認します。
-
-FTPアップロード: FileZilla等のFTPソフトまたはMixhostのcPanel内「ファイルマネージャー」を使用し、dist/ 内の全ファイルを公開ディレクトリ（public_html/等）へアップロードします。
-
-キャッシュクリアについて Mixhost（LiteSpeedサーバー）はキャッシュが強力です。アップロード後は、cPanelから「LiteSpeed Web Cache Manager」を開き、必ず**Flush LSCache（全キャッシュクリア）**を実行してください。修正が反映されない原因の9割はこれです。
-
-## 📝 運用メモ
-- **画像パス**: 必ず /assets/images/filename の形式で記述。
-- **広告計測**: CVタグやGTMは Layout.astro の <head> 内に設置済み。
-- **モバイルファースト**: 看護師ユーザーの9割はスマホ閲覧です。開発時は常にデベロッパーツールでSP表示を基準に調整してください。
-- **損切り基準**: 25クリックされて1件も発生（CV）しない場合は、LPのFV（ファーストビュー）訴求の変更を検討すること。
 
 ---
 
-© 2026 看護師 Support.com. All Rights Reserved.
+## 🛠 開発コマンド
+
+| コマンド | 説明 |
+| --- | --- |
+| `npm run dev` | **プレビュー起動**。`http://localhost:4321/案件ID` で確認できます。 |
+| `npm run build` | **本番ビルド**。`dist/` フォルダにファイルを生成します。 |
+| `npm run preview` | ビルド後の動作確認。 |
+
+---
+
+## 📚 運用メモ & レギュレーション
+
+* **クッションページ**: LP内のボタンはすべて `/link/案件ID` に自動設定され、そこからASPリンクへ飛びます。
+* **GTMタグ**: `src/layouts/Layout.astro` 内に記述されています。全LPに共通で適用されます。
+* **運営者情報**: 変更がある場合は `src/pages/company.astro` を編集してください。
+* **画像最適化**: 読み込み速度向上のため、画像は可能な限りWebP形式、またはTinyPNG等で軽量化してから格納してください。
+
+---
+
+© PPC LP Factory. All Rights Reserved.
