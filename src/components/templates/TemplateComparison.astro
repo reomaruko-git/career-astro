@@ -1,0 +1,62 @@
+---
+// src/components/templates/TemplateComparison.astro
+import BaseLayout from '../../layouts/BaseLayout.astro';
+const { entry, Content } = Astro.props;
+const data = entry.data;
+// ランキングデータがない場合は空配列
+const rankings = data.rankings || [];
+---
+
+<BaseLayout title={data.title} description={data.description}>
+<div class="bg-slate-50 min-h-screen">
+  <header class="bg-[#0F4C81] text-white py-8 text-center px-4">
+    <h1 class="text-2xl md:text-3xl font-bold">{data.texts.mvCatch}</h1>
+  </header>
+
+  <main class="max-w-4xl mx-auto px-4 py-12">
+    {/* 導入文 */}
+    <div class="bg-white p-6 rounded-xl shadow-sm mb-12 prose max-w-none">
+      <Content />
+    </div>
+
+    {/* ランキングセクション */}
+    <h2 class="text-center text-2xl font-bold mb-8 text-slate-800">おすすめエージェントBEST3</h2>
+    
+    <div class="space-y-8">
+      {rankings.map((item) => (
+        <div class="bg-white border-2 border-slate-200 rounded-xl overflow-hidden shadow-lg relative">
+          {item.badge && (
+            <div class="absolute top-0 left-0 bg-gold text-white font-bold px-4 py-1 rounded-br-xl z-10">
+              {item.badge}
+            </div>
+          )}
+          
+          <div class="flex flex-col md:flex-row">
+            <div class="bg-slate-100 p-6 flex flex-col items-center justify-center md:w-1/4 border-b md:border-b-0 md:border-r border-slate-200">
+              <span class="text-4xl font-bold text-accent mb-2">{item.rank}位</span>
+              <span class="font-bold text-lg">{item.name}</span>
+              <div class="text-yellow-500 text-sm">{'★'.repeat(Math.floor(item.rate))} {item.rate}</div>
+            </div>
+            
+            <div class="p-6 md:w-2/4">
+              <ul class="space-y-2">
+                {item.points.map(pt => (
+                  <li class="flex items-start text-sm font-bold text-slate-700">
+                    <span class="text-green-500 mr-2">✔</span>{pt}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            
+            <div class="p-6 md:w-1/4 flex items-center justify-center bg-slate-50">
+              <a href={item.link} class="block w-full text-center bg-red-500 hover:bg-red-600 text-white font-bold py-3 rounded-full shadow transition-colors">
+                公式サイトへ
+              </a>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </main>
+</div>
+</BaseLayout>

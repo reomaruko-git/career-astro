@@ -1,0 +1,35 @@
+---
+// src/components/templates/TemplatePera.astro
+import BaseLayout from '../../layouts/BaseLayout.astro';
+const { entry, Content } = Astro.props;
+const data = entry.data;
+const cushionUrl = `/link/${entry.slug}`;
+---
+<BaseLayout title={data.title} description={data.description}>
+<div class="bg-white min-h-screen pb-20">
+  {/* ヘッダー画像（クリックで飛ぶようにする場合も多い） */}
+  <a href={cushionUrl} class="block w-full max-w-2xl mx-auto hover:opacity-95 transition-opacity">
+    <img src={data.images.mv} alt="Main Visual" class="w-full h-auto shadow-md" />
+  </a>
+
+  {/* 直下CTAボタン */}
+  <div class="px-4 py-8 text-center bg-slate-50 border-b border-slate-200">
+    <a href={cushionUrl} class="inline-block w-full max-w-md bg-green-500 hover:bg-green-600 text-white font-bold text-xl py-5 rounded-lg shadow-lg shiny-btn animate-pulse">
+      公式サイトで詳細を見る
+      <span class="block text-sm font-normal mt-1">※無料登録は1分で完了します</span>
+    </a>
+  </div>
+
+  {/* 最低限の説明テキスト（300文字程度） */}
+  <div class="max-w-2xl mx-auto px-6 py-10 prose prose-slate">
+    <Content />
+  </div>
+
+  {/* フッターCTA */}
+  <div class="fixed bottom-0 w-full bg-white/90 backdrop-blur border-t border-slate-200 p-4 text-center">
+    <a href={cushionUrl} class="block max-w-md mx-auto bg-accent text-white font-bold py-3 rounded-full shadow-md">
+      公式サイトはこちら &raquo;
+    </a>
+  </div>
+</div>
+</BaseLayout>
