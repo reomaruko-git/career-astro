@@ -6,6 +6,12 @@ const {
   title,
   description = "業界特化の転職支援サービス。年収アップとキャリアの最適化を支援します。",
   bodyClass = "",
+  colors = {
+    primary: '#00A968',
+    secondary: '#ffffff',
+    accent: '#F39C12',
+    txtMain: '#333333',
+  },
 } = Astro.props;
 ---
 
@@ -60,5 +66,130 @@ const {
         &copy; {new Date().getFullYear()} Career Support. All Rights Reserved.
       </div>
     </footer>
+
+    <style is:global define:vars={{
+      'color-primary': colors.primary,
+      'color-secondary': colors.secondary,
+      'color-accent': colors.accent,
+      'color-txt-main': colors.txtMain,
+    }}>
+      /* フォント定義 */
+      @font-face {
+        font-family: 'LINE Seed JP';
+        src: url('https://cdn.jsdelivr.net/gh/kemat/line-seed-jp-webfont@main/fonts/LINESeedJP_OTF-Regular.woff2') format('woff2');
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'LINE Seed JP';
+        src: url('https://cdn.jsdelivr.net/gh/kemat/line-seed-jp-webfont@main/fonts/LINESeedJP_OTF-Bold.woff2') format('woff2');
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'LINE Seed JP';
+        src: url('https://cdn.jsdelivr.net/gh/kemat/line-seed-jp-webfont@main/fonts/LINESeedJP_OTF-ExtraBold.woff2') format('woff2');
+        font-weight: 800;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      /* 強制適用 */
+      body {
+        font-family: "LINE Seed JP", "Helvetica Neue", Arial, sans-serif !important;
+      }
+      .template-wrapper, .prose {
+        font-family: "LINE Seed JP", sans-serif !important;
+      }
+
+      /* デザイン調整 */
+      .prose h2 {
+        font-size: 1.75rem;
+        font-weight: 800;
+        color: var(--color-txt-main);
+        position: relative;
+        padding: 1.5rem 2rem;
+        text-align: center;
+        margin-top: 4rem;
+        margin-bottom: 2rem;
+        line-height: 1.3;
+        letter-spacing: -0.02em;
+        background-image: repeating-linear-gradient(
+          -45deg,
+          transparent,
+          transparent 10px,
+          color-mix(in srgb, var(--color-primary) 5%, transparent) 10px,
+          color-mix(in srgb, var(--color-primary) 5%, transparent) 20px
+        );
+      }
+      .prose h2:before,
+      .prose h2:after {
+        position: absolute;
+        content: '';
+        width: 50px;
+        height: 50px;
+      }
+      .prose h2:after {
+        top: 0;
+        left: 0;
+        border-top: 2px solid var(--color-primary);
+        border-left: 2px solid var(--color-primary);
+      }
+      .prose h2:before {
+        right: 0;
+        bottom: 0;
+        border-right: 2px solid var(--color-primary);
+        border-bottom: 2px solid var(--color-primary);
+      }
+      .prose h3 {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: var(--color-txt-main);
+        margin-top: 3rem;
+        margin-bottom: 1.25rem;
+        padding: 0.25rem 0 0.25rem 1rem;
+        border-bottom: 2px solid #e2e8f0;
+        letter-spacing: -0.01em;
+      }
+      .prose p { margin-bottom: 2rem; text-align: justify; }
+      .prose strong {
+        color: var(--color-txt-main) !important;
+        font-weight: 700 !important; 
+        background: linear-gradient(transparent 65%, rgba(0, 169, 104, 0.4) 65%) !important;
+        padding: 0 4px;
+        -webkit-box-decoration-break: clone;
+        box-decoration-break: clone;
+      }
+      .prose ul {
+        margin-top: 1.5rem;
+        margin-bottom: 2rem;
+        background-color: color-mix(in srgb, var(--color-primary) 5%, white);
+        padding: 1.5rem 1.5rem 1.5rem 3rem;
+        border-radius: 12px;
+      }
+      .prose li { margin-top: 0.5rem; margin-bottom: 0.5rem; padding-left: 0.25rem; }
+      .prose li::marker { color: var(--color-primary); font-weight: bold; }
+
+      /* キラッと光るエフェクト */
+      .shiny-effect::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 50%;
+        height: 100%;
+        background: linear-gradient(to right, transparent 0%, rgba(255,255,255,0.5) 50%, transparent 100%);
+        transform: skewX(-25deg);
+        animation: shine 4s infinite;
+        pointer-events: none;
+      }
+      @keyframes shine {
+        0% { left: -100%; }
+        20% { left: 200%; }
+        100% { left: 200%; }
+      }
+    </style>
   </body>
 </html>

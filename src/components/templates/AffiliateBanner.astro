@@ -1,0 +1,14 @@
+---
+const { link } = Astro.props;
+---
+
+<div class="flex flex-col items-center justify-center my-8">
+  {/* インプレッション計測用タグ */}
+  <img src="https://www.rentracks.jp/adx/p.gifx?idx=0.71657.372372.9942.14163&dna=163453" border="0" height="1" width="1" alt="" />
+  
+  {/* バナーリンク（クッションページ経由） */}
+  <a href={link} class="relative shiny-effect transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:opacity-90 shadow-xl rounded-xl overflow-hidden inline-block">
+    <img src="https://www.image-rentracks.com/14163/300_300_high_01.png" width="300" height="300" alt="公式サイトで求人を見る" class="w-[300px] h-[300px]" border="0" />
+  </a>
+  <p class="text-xs text-gray-500 mt-5 tracking-wide font-medium">※登録は無料・1分で完了します</p>
+</div>

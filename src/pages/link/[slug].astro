@@ -1,0 +1,21 @@
+---
+import { getCollection } from 'astro:content';
+import RedirectLayout from '../../layouts/RedirectLayout.astro';
+
+// 全てのLP記事に対して /link/[slug] のパスを生成
+export async function getStaticPaths() {
+  const lps = await getCollection('lps');
+  return lps.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const data = entry.data;
+
+// 遷移先URL（データがない場合のフォールバックも設定）
+const affiliateUrl = data.affiliateLink || "https://px.a8.net/svt/ejp?a8mat=XXXXXX";
+---
+
+<RedirectLayout pageTitle={data.title} affiliateUrl={affiliateUrl} />

@@ -5,11 +5,20 @@ const { entry, Content } = Astro.props;
 const data = entry.data;
 // ランキングデータがない場合は空配列
 const rankings = data.rankings || [];
+
+// 配色設定（なければデフォルト）
+const colors = data.colors || {
+  primary: '#00A968',
+  secondary: '#F4F7F6',
+  accent: '#F39C12',
+  txtMain: '#333333',
+  link: '#2563eb',
+};
 ---
 
-<BaseLayout title={data.title} description={data.description}>
+<BaseLayout title={data.title} description={data.description} colors={colors}>
 <div class="bg-slate-50 min-h-screen">
-  <header class="bg-[#0F4C81] text-white py-8 text-center px-4">
+  <header class="text-white py-8 text-center px-4" style="background-color: var(--color-primary)">
     <h1 class="text-2xl md:text-3xl font-bold">{data.texts.mvCatch}</h1>
   </header>
 
@@ -49,7 +58,7 @@ const rankings = data.rankings || [];
             </div>
             
             <div class="p-6 md:w-1/4 flex items-center justify-center bg-slate-50">
-              <a href={item.link} class="block w-full text-center bg-red-500 hover:bg-red-600 text-white font-bold py-3 rounded-full shadow transition-colors">
+              <a href={item.link} class="block w-full text-center bg-accent hover:opacity-90 text-white font-bold py-3 rounded-full shadow transition-colors shiny-effect relative overflow-hidden">
                 公式サイトへ
               </a>
             </div>
