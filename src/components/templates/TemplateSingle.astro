@@ -62,11 +62,14 @@ const ctaData = data.cta;
 
       {/* MV内ボタン */}
       <div class="hidden md:inline-block relative group">
-        <a href={affiliateLink} class="relative flex flex-col md:flex-row items-center justify-center bg-accent text-white text-xl md:text-2xl font-bold py-5 px-10 md:px-16 rounded-full shadow-md hover:bg-orange-500 transition-all transform hover:-translate-y-0.5 min-w-[300px] md:min-w-[400px]">
-          <span>公式サイトで求人を見る</span>
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mt-1 md:mt-0 md:ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-          </svg>
+        <a href={affiliateLink} class="relative flex items-center justify-center bg-accent text-white text-xl md:text-2xl font-bold py-5 px-10 md:px-16 rounded-full shadow-lg hover:opacity-90 transition-all duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-2xl min-w-[300px] md:min-w-[400px]">
+          <span class="absolute inset-0 rounded-full overflow-hidden shiny-effect"></span>
+          <span class="relative z-10 flex flex-col md:flex-row items-center">
+            <span>公式サイトで求人を見る</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mt-1 md:mt-0 md:ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+            </svg>
+          </span>
         </a>
         <p class="text-xs text-gray-300 mt-3 font-medium tracking-wider">
           ※登録は無料・1分で完了します
