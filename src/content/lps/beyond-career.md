@@ -9,6 +9,12 @@ colors:
 keywords:
   - text: "Beyond Career"
     link: "/link/beyond-career"
+affiliateLink: "https://www.rentracks.jp/adx/r.html?idx=0.71657.374389.7458.10582&dna=129080"
+cta:
+  title: "＼ 1分で完了・非公開求人を確認 ／"
+  label: "無料でキャリア診断を受ける"
+  microCopy: "※無理な勧誘は一切ありません"
+  icon: "fa-solid fa-check-circle"
 ---
 
 <ul data-title="この記事はこんな人におすすめです" class="with-title">
@@ -113,11 +119,3 @@ Beyond Career は違います。
 
 「あの時動いておけばよかった」と後悔する前に。
 あなたの経験を正当に評価してくれる場所があるか、まずは確認してみませんか？
-
-<div class="cta-container text-center my-8">
-  <p class="text-sm font-bold text-accent mb-2 !text-center">＼ 1分で完了・非公開求人を確認 ／</p>
-  <a href="https://example.com/link/beyond-career" class="btn-primary !no-underline hover:opacity-80 transition-opacity block w-full py-4 rounded-lg shadow-lg font-bold text-lg" style="background-color: var(--color-accent); color: white;" target="_blank" rel="noopener noreferrer">
-    <i class="fa-solid fa-check-circle mr-2"></i>無料でキャリア診断を受ける
-  </a>
-  <span class="text-xs text-gray-500 mt-2 block">※無理な勧誘は一切ありません</span>
-</div>

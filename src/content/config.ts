@@ -17,6 +17,13 @@ const lps = defineCollection({
     // ▲▲▲ ここまで ▲▲▲
     rankings: z.array(z.any()).optional(),
     texts: z.record(z.string()).optional(),
+    // ▼▼▼ CTA用の設定を追加 ▼▼▼
+    cta: z.object({
+      title: z.string().optional(),
+      label: z.string().optional(),
+      microCopy: z.string().optional(),
+      icon: z.string().optional(),
+    }).optional(),
   }),
 });
 

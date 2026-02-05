@@ -1,0 +1,17 @@
+---
+const {
+  href,
+  title = "＼ 1分で完了・非公開求人を確認 ／",
+  label = "公式サイトで詳細を見る",
+  microCopy = "※登録は簡単1分程度で完了します",
+  color = "var(--color-accent)",
+  iconClass = "fa-solid fa-arrow-right"
+} = Astro.props;
+---
+<div class="cta-container text-center my-8">
+  {title && <p class="text-sm font-bold text-accent mb-2 !text-center">{title}</p>}
+  <a href={href} class="btn-primary !no-underline hover:opacity-80 transition-opacity block w-full py-4 rounded-lg shadow-lg font-bold text-lg" style={`background-color: ${color}; color: white;`} target="_blank" rel="noopener noreferrer">
+    <i class={`${iconClass} mr-2`}></i>{label}
+  </a>
+  {microCopy && <span class="text-xs text-gray-500 mt-2 block">{microCopy}</span>}
+</div>

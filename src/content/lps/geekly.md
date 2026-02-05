@@ -9,6 +9,12 @@ colors:
 keywords:
   - text: "Geekly"
     link: "/link/geekly"
+affiliateLink: "https://www.geekly.co.jp/entry/t02"
+cta:
+  title: "＼ IT・Web・ゲーム業界特化 ／"
+  label: "Geekly公式サイトで詳細を見る"
+  microCopy: "※登録は簡単1分程度で完了します"
+  icon: "fa-solid fa-circle-arrow-right"
 ---
 
 <ul data-title="この記事の対象者" class="with-title">
@@ -85,10 +91,3 @@ Geeklyは「プロフェッショナル向け」のサービスです。その�
 それを知るだけでも、日々の働き方や学習の方向性が変わるかもしれません。
 
 Geeklyのサービスは完全無料。まずは話を聞いてみて、「ここなら任せられそう」と思えたら利用する、くらいの温度感で大丈夫です。
-
-<div class="cta-container">
-  <a href="https://www.geekly.co.jp/entry/t02" class="btn-primary !no-underline hover:opacity-80 transition-opacity" style="background-color: transparent; color: color-mix(in srgb, var(--color-primary), black 20%)" target="_blank" rel="noopener noreferrer">
-    <i class="fa-solid fa-circle-arrow-right mr-2"></i>Geekly公式サイトで詳細を見る<br>
-  </a>
-  <p class="text-center mt-2 text-sm font-normal">※登録は簡単1分程度で完了します</p>
-</div>
