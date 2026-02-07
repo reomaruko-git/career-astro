@@ -28,6 +28,15 @@ const lps = defineCollection({
       microCopy: z.string().optional(),
       icon: z.string().optional(),
     }).optional(),
+    // ▼▼▼ MVボタンの文言設定を追加 ▼▼▼
+    mvButtonLabel: z.string().optional(),
+    mvMicroCopy: z.string().optional(),
+    // ▼▼▼ 追従ボタンの設定を追加 ▼▼▼
+    sticky: z.object({
+      text: z.string().optional(),
+      label: z.string().optional(),
+      microCopy: z.string().optional(),
+    }).optional(),
   }),
 });
 

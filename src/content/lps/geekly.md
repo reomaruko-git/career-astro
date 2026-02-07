@@ -1,10 +1,10 @@
 ---
 template: ../../components/templates/TemplateSingle.astro
-title: "「技術の話が通じない」と嘆くあなたへ。｜Geekly"
+title: "「技術の話が通じない」と嘆くあなたへ。｜Match Box"
 heroTitle: "<span class='text-5xl md:text-7xl lg:text-8xl'>「技術の話が通じない」と<br class='md:hidden'><span class='text-accent'>嘆くあなたへ。</span></span><br><span class='text-lg md:text-3xl block mt-4 font-bold opacity-90 tracking-normal leading-snug'>IT・ゲーム業界の“専門店”が<br>選ばれる理由とは？</span>"
 badge: "For IT/Web/Game Engineers"
-description: 総合型エージェントで的外れな求人ばかり紹介されていませんか？現役エンジニア・クリエイターが、自身の市場価値を正しく評価してもらうために選ぶべき「特化型エージェント」の活用法について解説します。
-images: { mv: '/assets/images/lp/geekly/mv_engineer.jpg' }
+description: 総合型エージェントに疲れていませんか？現役エンジニアが選ぶ「特化型」の活用法を解説。
+images: { mv: '/assets/images/lp/geekly/mv_geekly.jpg' }
 colors:
   primary: "#25959d"
   accent: "#eb803e"
@@ -16,6 +16,10 @@ cta:
   title: "＼ IT・Web・ゲーム業界特化 ／"
   label: "Geekly公式サイトで詳細を見る"
   microCopy: "※登録は簡単1分程度で完了します"
+sticky:
+  text: "IT・Web・ゲーム業界特化！"
+  label: "公式サイトで求人を見る"
+  microCopy: "※登録は無料・1分で完了"
 ---
 
 <ul data-title="この記事の対象者" class="with-title">

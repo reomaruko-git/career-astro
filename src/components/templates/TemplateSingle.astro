@@ -29,13 +29,20 @@ const keywords = [
 
 // CTA設定の取得
 const ctaData = data.cta;
+
+// ▼ MVボタンの文言設定（frontmatterで指定がなければデフォルト値を使用）
+const mvButtonLabel = data.mvButtonLabel || '公式サイトで求人を見る';
+const mvMicroCopy = data.mvMicroCopy || '※登録は無料・1分で完了します';
+
+// ▼ 追従ボタンの設定（frontmatterで指定がなければデフォルト値を使用）
+const stickyData = data.sticky || {};
 ---
 
 <BaseLayout title={data.title} description={data.description} colors={colors} keywords={keywords}>
 <div class="template-wrapper min-h-screen bg-slate-50 text-txt-main pb-24 md:pb-0">
   
   {/* ▼▼▼ MVセクション ▼▼▼ */}
-  <section class="relative min-h-[440px] md:min-h-[560px] flex items-start justify-center overflow-hidden pt-16 pb-12 md:pt-16 md:pb-20">
+  <section class="relative min-h-[440px] md:min-h-[560px] flex items-start justify-center overflow-hidden pt-20 pb-28 md:pt-16 md:pb-20">
     <div class="absolute inset-0 z-0">
       <img src={mvImage} alt="Main Visual" class="w-full h-full object-cover" />
       <div class="absolute inset-0 bg-[radial-gradient(#ffffff_1.5px,transparent_1.5px)] [background-size:24px_24px] opacity-20"></div>
@@ -56,14 +63,14 @@ const ctaData = data.cta;
         <a href={affiliateLink} class="relative flex items-center justify-center bg-accent text-white text-xl md:text-2xl font-bold py-5 px-10 md:px-16 rounded-full shadow-lg hover:opacity-90 transition-all duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-2xl min-w-[300px] md:min-w-[400px]">
           <span class="absolute inset-0 rounded-full overflow-hidden shiny-effect"></span>
           <span class="relative z-10 flex flex-col md:flex-row items-center">
-            <span>公式サイトで求人を見る</span>
+            <span>{mvButtonLabel}</span>
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mt-1 md:mt-0 md:ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M13 7l5 5m0 0l-5 5m5-5H6" />
             </svg>
           </span>
         </a>
         <p class="text-xs text-gray-300 mt-3 font-medium tracking-wider">
-          ※登録は無料・1分で完了します
+          {mvMicroCopy}
         </p>
       </div>
     </div>
@@ -76,7 +83,7 @@ const ctaData = data.cta;
       <article class="bg-white rounded-[2rem] shadow-xl overflow-hidden ring-1 ring-black/5">
         <div class="p-8 md:p-14">
            {/* 本文 */}
-           <div class="prose prose-lg max-w-none text-gray-700 leading-loose prose-p:tracking-wide">
+           <div class="prose prose-lg max-w-none text-gray-700 leading-loose prose-p:tracking-wide prose-a:font-bold prose-a:underline prose-a:decoration-dotted hover:prose-a:opacity-70 prose-a:transition-opacity">
               <Content />
            </div>
            
@@ -100,7 +107,19 @@ const ctaData = data.cta;
 
 
   {/* ▼▼▼ スマホ用・追従固定ボタン ▼▼▼ */}
-  <StickyFooter link={affiliateLink} />
+  <StickyFooter 
+    link={affiliateLink} 
+    text={stickyData.text} 
+    label={stickyData.label} 
+    microCopy={stickyData.microCopy} 
+    colors={colors}
+  />
 
 </div>
+<style define:vars={{ primaryColor: colors.primary }}>
+  /* 記事内のリンク色をPrimaryカラーに設定 */
+  .prose :global(a) {
+    color: var(--primaryColor);
+  }
+</style>
 </BaseLayout>

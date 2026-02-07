@@ -14,6 +14,7 @@ const {
     txtMain: '#333333',
     link: '#0b62e5',
   },
+  showHeader = false,
 } = Astro.props;
 ---
 
@@ -49,6 +50,16 @@ const {
       <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TBTHH8XN" height="0" width="0" style="display: none; visibility: hidden"></iframe></noscript>
     )}
     
+    {showHeader && (
+      <header class="py-6 px-4 border-b border-gray-100 bg-white">
+        <div class="max-w-4xl mx-auto">
+          <a href="/" class="inline-block hover:opacity-80 transition-opacity">
+            <img src="/assets/images/logo.svg" alt="Match Box" class="h-8 md:h-10 w-auto" />
+          </a>
+        </div>
+      </header>
+    )}
+
     <slot />
 
     <footer class="bg-[#1e3a5f] text-[#E0F2FE] py-12 px-4 mt-auto">
@@ -57,7 +68,7 @@ const {
           <div class="font-bold text-xl text-white tracking-wider">
             <img src="/assets/images/logo_wh.svg" alt="Match Box" class="h-22 w-auto" />
           </div>
-          <p class="text-xs mt-2 opacity-80">あなたの生活に、新しい可能性を。</p>
+          <p class="text-xs mt-2 opacity-80">あなたの世界に、新しい可能性を。</p>
         </div>
         <div class="text-center md:text-right">
           <div class="mt-4 space-x-6 text-xs font-medium">
