@@ -4,123 +4,127 @@ import AffiliateBanner from './AffiliateBanner.astro';
 import ArticleCta from './ArticleCta.astro';
 import StickyFooter from './StickyFooter.astro';
 import BaseLayout from '../../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+
 const { entry, Content } = Astro.props;
 const data = entry.data;
 
-// ▼ 1. 画像の安全な取得
+// --- 1. 画像の安全な取得 ---
 const mvImage = data.images?.mv || 'https://placehold.jp/1200x630.png?text=No+Image';
 const mvAlt = data.images?.mvAlt || 'Main Visual';
 
-// ▼ 2. 配色設定の安全な取得
+// --- 2. Canonical URLの生成 (大文字URLに統一) ---
+// 変数名を canonicalURL に統一します
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+// --- 3. OGP画像の生成 ---
+const ogImage = data.images?.og || mvImage;
+let ogImageUrl;
+if (typeof ogImage === 'string') {
+  ogImageUrl = ogImage.startsWith('http') ? ogImage : new URL(ogImage, Astro.site).href;
+} else {
+  // オブジェクトの場合は .src を使って絶対URL化
+  ogImageUrl = new URL(ogImage.src, Astro.site).href;
+}
+
+// --- 4. 配色・リンク設定 ---
 const defaultColors = {
-  primary: '#00A968',
+  primary: '#1e3a8a',
   secondary: '#eeeeee',
-  accent: '#F39C12',
+  accent: '#ea580c',
   txtMain: '#333333',
   link: '#2563eb',
 };
 const colors = { ...defaultColors, ...(data.colors || {}) };
-
-// ▼ 3. リンクの取得
 const affiliateLink = `/link/${entry.slug}`;
 const keywords = [
   ...(data.title ? [{ text: data.title, link: affiliateLink }] : []),
   ...(data.keywords || [])
 ];
 
-// CTA設定の取得
 const ctaData = data.cta;
-
-// ▼ MVボタンの文言設定（frontmatterで指定がなければデフォルト値を使用）
 const heroCta = data.heroCta || {};
-const mvButtonLabel = heroCta.label || data.mvButtonLabel || '公式サイトで求人を見る';
+const mvButtonLabel = heroCta.label || data.mvButtonLabel || '公式サイトで詳細を見る';
 const mvMicroCopy = heroCta.microCopy || data.mvMicroCopy || '※登録は無料・1分で完了します';
-
-// ▼ 追従ボタンの設定（frontmatterで指定がなければデフォルト値を使用）
 const stickyData = data.sticky || {};
-
-// ▼ Canonical URLの生成
-const canonicalUrl = `https://match-box.net/${entry.slug}`;
-
-// ▼ OGP画像の生成（絶対パス化）
-const rawOgImage = data.images?.og || mvImage;
-const ogImageUrl = rawOgImage.startsWith('http') ? rawOgImage : `https://match-box.net${rawOgImage}`;
 ---
 
-<BaseLayout title={data.title} description={data.description} colors={colors} keywords={keywords} canonical={canonicalUrl} ogImage={ogImageUrl}>
-<div class="template-wrapper min-h-screen bg-slate-50 text-txt-main pb-12 md:pb-0">
-  
-  {/* ▼▼▼ MVセクション ▼▼▼ */}
-  <section class="relative min-h-[440px] md:min-h-[560px] flex items-start justify-center overflow-hidden pt-20 pb-28 md:pt-16 md:pb-20">
-    <div class="absolute inset-0 z-0">
-      <img src={mvImage} alt={mvAlt} class="w-full h-full object-cover" />
-      <div class="absolute inset-0 bg-[radial-gradient(#ffffff_1.5px,transparent_1.5px)] [background-size:24px_24px] opacity-20"></div>
-      <div class="absolute inset-0 bg-gradient-to-t from-gray-900/95 via-gray-900/60 to-gray-900/30"></div>
-    </div>
-
-    <div class="relative z-10 container max-w-4xl mx-auto px-6 text-center">
-      {data.badge && <p class="text-accent font-bold tracking-[0.2em] uppercase mb-5 text-xs md:text-sm bg-black/30 inline-block px-4 py-1 rounded-full border border-white/10 backdrop-blur-md">
-        {data.badge}
-      </p>}
-      <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight mb-6 text-white drop-shadow-md tracking-tighter [text-wrap:balance]" set:html={data.heroTitle || data.title} />
-      <p class="text-gray-100 text-base md:text-xl font-medium leading-relaxed max-w-2xl mx-auto tracking-normal opacity-90 mb-0 md:mb-10">
-        {data.description}
-      </p>
-
-      {/* MV内ボタン */}
-      <div class="inline-block relative group mt-8 md:mt-0 w-full md:w-auto">
-        <a href={affiliateLink} class="relative flex items-center justify-center bg-accent text-white text-xl md:text-2xl font-bold py-5 px-6 md:px-16 rounded-full shadow-lg hover:opacity-90 transition-all duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-2xl w-full md:w-auto md:min-w-[400px]">
-          <span class="absolute inset-0 rounded-full overflow-hidden shiny-effect"></span>
-          <span class="relative z-10 flex items-center justify-center gap-3">
-            <span>{mvButtonLabel}</span>
-            <i class="fa-solid fa-chevron-right text-lg md:text-xl"></i>
-          </span>
-        </a>
-        <p class="text-xs text-gray-300 mt-3 font-medium tracking-wider">
-          {mvMicroCopy}
-        </p>
+<BaseLayout 
+  title={data.title} 
+  description={data.description} 
+  colors={colors} 
+  keywords={keywords} 
+  canonical={canonicalURL} 
+  ogImage={ogImageUrl}
+>
+  <div class="template-wrapper min-h-screen bg-slate-50 text-txt-main pb-12 md:pb-0">
+    
+    <section class="relative min-h-[440px] md:min-h-[560px] flex items-start justify-center overflow-hidden pt-20 pb-28 md:pt-16 md:pb-20">
+      <div class="absolute inset-0 z-0">
+        {typeof mvImage === 'string' ? (
+          <img src={mvImage} alt={mvAlt} class="w-full h-full object-cover" />
+        ) : (
+          <Image src={mvImage} alt={mvAlt} class="w-full h-full object-cover" loading="eager" />
+        )}
+        <div class="absolute inset-0 bg-[radial-gradient(#ffffff_1.5px,transparent_1.5px)] [background-size:24px_24px] opacity-20"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/95 via-gray-900/60 to-gray-900/30"></div>
       </div>
-    </div>
-  </section>
 
-  {/* ▼ メインコンテンツ */}
-  <main class="relative z-20 px-4 -mt-16 pb-12">
-    <div class="max-w-3xl mx-auto">
-      
-      <article class="bg-white rounded-[2rem] shadow-xl overflow-hidden ring-1 ring-black/5">
-        <div class="p-8 md:p-14">
-           {/* 本文 */}
-           <div class="prose prose-lg max-w-none text-gray-700 leading-relaxed prose-p:tracking-normal">
-              <Content />
-           </div>
-           
-           {/* ▼ 記事末尾の共通CTA（frontmatterで設定がある場合のみ表示） */}
-           {ctaData && (
-             <ArticleCta
-               href={affiliateLink}
-               title={ctaData.title}
-               label={ctaData.label}
-               microCopy={ctaData.microCopy}
-               icon={ctaData.icon}
-               color={colors.accent}
-             />
-           )}
+      <div class="relative z-10 container max-w-4xl mx-auto px-6 text-center">
+        {data.badge && (
+          <p class="text-accent font-bold tracking-[0.2em] uppercase mb-5 text-xs md:text-sm bg-black/30 inline-block px-4 py-1 rounded-full border border-white/10 backdrop-blur-md">
+            {data.badge}
+          </p>
+        )}
+        <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight mb-6 text-white drop-shadow-md tracking-tighter [text-wrap:balance]" set:html={data.heroTitle || data.title} />
+        <p class="text-gray-100 text-base md:text-xl font-medium leading-relaxed max-w-2xl mx-auto tracking-normal opacity-90 mb-0 md:mb-10">
+          {data.description}
+        </p>
 
+        <div class="inline-block relative group mt-8 md:mt-0 w-full md:w-auto">
+          <a href={affiliateLink} class="relative flex items-center justify-center bg-accent text-white text-xl md:text-2xl font-bold py-5 px-6 md:px-16 rounded-full shadow-lg hover:opacity-90 transition-all duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-2xl w-full md:w-auto md:min-w-[400px]">
+            <span class="absolute inset-0 rounded-full overflow-hidden shiny-effect"></span>
+            <span class="relative z-10 flex items-center justify-center gap-3">
+              <span>{mvButtonLabel}</span>
+              <i class="fa-solid fa-chevron-right text-lg md:text-xl"></i>
+            </span>
+          </a>
+          <p class="text-xs text-gray-300 mt-3 font-medium tracking-wider">
+            {mvMicroCopy}
+          </p>
         </div>
-      </article>
+      </div>
+    </section>
 
-    </div>
-  </main>
+    <main class="relative z-20 px-4 -mt-16 pb-12">
+      <div class="max-w-3xl mx-auto">
+        <article class="bg-white rounded-[2rem] shadow-xl overflow-hidden ring-1 ring-black/5">
+          <div class="p-8 md:p-14">
+             <div class="prose prose-lg max-w-none text-gray-700 leading-relaxed prose-p:tracking-normal">
+                <Content />
+             </div>
+             
+             {ctaData && (
+               <ArticleCta
+                 href={affiliateLink}
+                 title={ctaData.title}
+                 label={ctaData.label}
+                 microCopy={ctaData.microCopy}
+                 icon={ctaData.icon}
+                 color={colors.accent}
+               />
+             )}
+          </div>
+        </article>
+      </div>
+    </main>
 
-
-  {/* ▼▼▼ スマホ用・追従固定ボタン ▼▼▼ */}
-  <StickyFooter 
-    link={affiliateLink} 
-    text={stickyData.text} 
-    label={stickyData.label} 
-    microCopy={stickyData.microCopy} 
-    colors={colors}
-  />
-
-</div>
+    <StickyFooter 
+      link={affiliateLink} 
+      text={stickyData.text} 
+      label={stickyData.label} 
+      microCopy={stickyData.microCopy} 
+      colors={colors}
+    />
+  </div>
 </BaseLayout>

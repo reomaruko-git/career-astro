@@ -1,74 +1,122 @@
 ---
 // src/components/templates/TemplateComparison.astro
 import BaseLayout from '../../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+
 const { entry, Content } = Astro.props;
 const data = entry.data;
-// ランキングデータがない場合は空配列
-const rankings = data.rankings || [];
-const keywords = rankings.map(item => ({ text: item.name, link: item.link }));
 
-// 配色設定（なければデフォルト）
-const colors = data.colors || {
-  primary: '#00A968',
-  secondary: '#F4F7F6',
-  accent: '#F39C12',
+// --- 1. 画像の安全な取得 (Astro imageヘルパー対応) ---
+const rawMvImage = data.images?.mv || 'https://placehold.jp/1200x630.png?text=No+Image';
+// 文字列(URL)か、オブジェクト(src付き)かを判定
+const mvImageSrc = typeof rawMvImage === 'string' ? rawMvImage : rawMvImage.src;
+const mvAlt = data.images?.mvAlt || 'Main Visual';
+
+// --- 2. 比較・ランキングデータの処理 ---
+const rankings = data.rankings || [];
+const keywords = [
+  ...rankings.map(item => ({ text: item.name, link: item.link })),
+  ...(data.keywords || [])
+];
+
+// --- 3. Canonical URLの生成 (一貫性のために定義) ---
+// astro.config.mjs の site 設定を使用
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+// --- 4. OGP画像の生成 (絶対パス化) ---
+const rawOgImage = data.images?.og || rawMvImage;
+let ogImageUrl;
+if (typeof rawOgImage === 'string') {
+  ogImageUrl = rawOgImage.startsWith('http') ? rawOgImage : `https://match-box.net${rawOgImage}`;
+} else {
+  // image() オブジェクトの場合は .src を使って絶対URLを構築
+  ogImageUrl = new URL(rawOgImage.src, Astro.site);
+}
+
+// --- 5. 配色設定 ---
+const defaultColors = {
+  primary: '#1e3a8a', // MBA等と合わせる場合はデフォルト値を調整
+  secondary: '#eeeeee',
+  accent: '#ea580c',
   txtMain: '#333333',
   link: '#2563eb',
 };
+const colors = { ...defaultColors, ...(data.colors || {}) };
 ---
 
-<BaseLayout title={data.title} description={data.description} colors={colors} keywords={keywords}>
-<div class="bg-slate-50 min-h-screen">
-  <header class="text-white py-8 text-center px-4" style="background-color: var(--color-primary)">
-    <h1 class="text-2xl md:text-3xl font-bold" set:html={data.heroTitle || data.texts?.mvCatch || data.title} />
-  </header>
+<BaseLayout 
+  title={data.title} 
+  description={data.description} 
+  colors={colors} 
+  keywords={keywords} 
+  canonical={canonicalURL} 
+  ogImage={ogImageUrl}
+>
+  <div class="bg-slate-50 min-h-screen pb-12">
+    <header class="text-white py-12 md:py-20 text-center px-4" style={{ backgroundColor: colors.primary }}>
+      <div class="max-w-4xl mx-auto">
+        <h1 class="text-3xl md:text-5xl font-extrabold leading-tight tracking-tighter" set:html={data.heroTitle || data.texts?.mvCatch || data.title} />
+      </div>
+    </header>
 
-  <main class="max-w-4xl mx-auto px-4 py-12">
-    {/* 導入文 */}
-    <div class="bg-white p-6 rounded-xl shadow-sm mb-12 prose max-w-none">
-      <Content />
-    </div>
+    <main class="max-w-4xl mx-auto px-4 -mt-8 md:-mt-12 relative z-10">
+      {/* 導入文 */}
+      <div class="bg-white p-8 md:p-12 rounded-2xl shadow-xl mb-12 prose prose-lg max-w-none text-slate-700 leading-relaxed">
+        <Content />
+      </div>
 
-    {/* ランキングセクション */}
-    <h2 class="text-center text-2xl font-bold mb-8 text-slate-800">おすすめエージェントBEST3</h2>
-    
-    <div class="space-y-8">
-      {rankings.map((item) => (
-        <div class="bg-white border-2 border-slate-200 rounded-xl overflow-hidden shadow-lg relative">
-          {item.badge && (
-            <div class="absolute top-0 left-0 bg-gold text-white font-bold px-4 py-1 rounded-br-xl z-10">
-              {item.badge}
-            </div>
-          )}
-          
-          <div class="flex flex-col md:flex-row">
-            <div class="bg-slate-100 p-6 flex flex-col items-center justify-center md:w-1/4 border-b md:border-b-0 md:border-r border-slate-200">
-              <span class="text-4xl font-bold text-accent mb-2">{item.rank}位</span>
-              <a href={item.link} class="font-bold text-lg hover:text-accent hover:underline transition-colors text-center">
-                {item.name}
-              </a>
-              <div class="text-yellow-500 text-sm">{'★'.repeat(Math.floor(item.rate))} {item.rate}</div>
-            </div>
+      {/* ランキングセクション */}
+      <h2 class="text-center text-2xl md:text-3xl font-extrabold mb-10 text-slate-800">
+        おすすめエージェントBEST3
+      </h2>
+      
+      <div class="space-y-10">
+        {rankings.map((item) => (
+          <div class="bg-white border border-slate-200 rounded-3xl overflow-hidden shadow-xl relative hover:shadow-2xl transition-shadow duration-300">
+            {item.badge && (
+              <div class="absolute top-0 left-0 bg-accent text-white font-bold px-6 py-2 rounded-br-2xl z-20 text-sm shadow-md">
+                {item.badge}
+              </div>
+            )}
             
-            <div class="p-6 md:w-2/4">
-              <ul class="space-y-2">
-                {item.points.map(pt => (
-                  <li class="flex items-start text-sm font-bold text-slate-700">
-                    <span class="text-green-500 mr-2">✔</span>{pt}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            
-            <div class="p-6 md:w-1/4 flex items-center justify-center bg-slate-50">
-              <a href={item.link} class="block w-full text-center bg-accent hover:opacity-90 text-white font-bold py-3 rounded-full shadow transition-colors shiny-effect relative overflow-hidden">
-                公式サイトへ
-              </a>
+            <div class="flex flex-col md:flex-row">
+              {/* 順位・名称エリア */}
+              <div class="bg-slate-50 p-8 flex flex-col items-center justify-center md:w-1/4 border-b md:border-b-0 md:border-r border-slate-100">
+                <span class="text-5xl font-black text-accent mb-3 tracking-tighter">{item.rank}位</span>
+                <a href={item.link} class="font-bold text-xl text-primary hover:text-accent transition-colors text-center leading-snug">
+                  {item.name}
+                </a>
+                <div class="text-yellow-500 mt-2 flex items-center gap-1 font-bold">
+                  <span class="text-lg">{'★'.repeat(Math.floor(item.rate))}</span>
+                  <span class="text-slate-500 text-sm">({item.rate})</span>
+                </div>
+              </div>
+              
+              {/* ポイントエリア */}
+              <div class="p-8 md:w-2/4 flex flex-col justify-center">
+                <ul class="space-y-4">
+                  {item.points.map(pt => (
+                    <li class="flex items-start text-base font-bold text-slate-700">
+                      <span class="text-green-500 mr-3 text-xl">✔</span>
+                      <span>{pt}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              
+              {/* ボタンエリア */}
+              <div class="p-8 md:w-1/4 flex items-center justify-center bg-slate-50/50">
+                <a href={item.link} class="group block w-full text-center bg-accent hover:opacity-95 text-white font-bold py-5 rounded-full shadow-lg transition-all duration-300 relative overflow-hidden hover:-translate-y-1 hover:shadow-2xl">
+                  <span class="absolute inset-0 rounded-full overflow-hidden shiny-effect"></span>
+                  <span class="relative z-10 flex items-center justify-center gap-2 text-lg">
+                    公式サイトへ <i class="fa-solid fa-chevron-right text-sm"></i>
+                  </span>
+                </a>
+              </div>
             </div>
           </div>
-        </div>
-      ))}
-    </div>
-  </main>
-</div>
+        ))}
+      </div>
+    </main>
+  </div>
 </BaseLayout>

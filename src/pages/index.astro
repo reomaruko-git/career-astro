@@ -1,0 +1,70 @@
+---
+// src/pages/index.astro
+import { getCollection } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+
+// 1. 全LPを自動取得
+const allLps = await getCollection('lps');
+
+// デザイン用の共通色
+const colors = { primary: '#1e3a8a', accent: '#ea580c' };
+---
+
+<Layout title="MatchBox - LP Index" description="運用中のランディングページ一覧" colors={colors}>
+  <main class="max-w-6xl mx-auto px-6 py-20">
+    
+    <header class="mb-20 text-center flex flex-col items-center">
+      {/* ロゴとタイトルのコンテナ */}
+      <div class="flex items-center justify-center gap-4 mb-4">
+        {/* ロゴ画像：public/assets/images/ に置いたものを呼び出し */}
+        <img 
+          src="/assets/images/logo.svg" 
+          alt="MatchBox Logo" 
+          class="w-10 h-10 md:w-14 md:h-14 object-contain"
+        />
+        <h1 class="text-5xl md:text-7xl font-black text-slate-900 tracking-tighter">
+          MatchBox
+        </h1>
+      </div>
+
+      <div class="h-1 w-24 bg-accent mb-6"></div>
+      
+      <p class="text-slate-500 font-medium tracking-widest uppercase text-xs md:text-sm">
+        Total Assets: <span class="text-slate-900 font-bold">{allLps.length}</span> Landing Pages
+      </p>
+    </header>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+      {allLps.map((lp) => (
+        <a href={`/${lp.slug}/`} class="group bg-white rounded-[2.5rem] overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border border-slate-100 flex flex-col">
+          
+          {/* サムネイルエリア（バッジを削除してスッキリ） */}
+          <div class="aspect-[16/10] overflow-hidden bg-slate-100 relative">
+            {lp.data.images?.mv && (
+              <Image 
+                src={lp.data.images.mv} 
+                alt={lp.data.title} 
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+              />
+            )}
+            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500"></div>
+          </div>
+
+          {/* テキストエリア */}
+          <div class="p-10 flex-grow flex flex-col">
+            <h2 class="text-xl font-bold text-slate-800 mb-4 group-hover:text-primary transition-colors line-clamp-2 leading-tight tracking-tight">
+              {lp.data.title}
+            </h2>
+            <p class="text-slate-400 text-sm line-clamp-3 mb-8 leading-relaxed font-medium">
+              {lp.data.description}
+            </p>
+            <div class="mt-auto flex items-center text-[10px] font-black text-primary uppercase tracking-[0.2em]">
+              Explore Project <i class="fa-solid fa-arrow-right ml-3 group-hover:translate-x-2 transition-transform duration-300"></i>
+            </div>
+          </div>
+        </a>
+      ))}
+    </div>
+  </main>
+</Layout>

@@ -4,7 +4,10 @@ title: "35歳からのキャリア再構築。働きながら3ヶ月で国内MBA
 heroTitle: "<span class='text-5xl md:text-7xl lg:text-8xl'>働きながら<br><span class='text-accent'>学歴という評価軸を整える</span></span><br><span class='text-xl md:text-3xl block mt-6 font-bold opacity-90 tracking-normal leading-snug'>3ヶ月で最終学歴を更新する</span>"
 badge: "For Ambitious Business Person"
 description: "実力はあるのに書類で落ちるあなたへ。国内難関MBAを「キャリアの武器」として最短3ヶ月で手に入れる、現役会社員のための戦略的受験プログラム。"
-images: { mv: '/assets/images/lp/mba-laundering/mv_mba-laundering.webp', mvAlt: '35歳からのキャリア再構築', og: '/assets/images/lp/mba-laundering/ogp.png' }
+images:
+  mv: "../../assets/images/lp/mba-laundering/mv_mba-laundering.webp"
+  mvAlt: "35歳からのキャリア再構築"
+  og: "../../assets/images/lp/mba-laundering/ogp.png"
 colors:
   primary: "#1e3a8a"
   accent: "#ea580c"
@@ -45,7 +48,7 @@ sticky:
   </a>
 </div>
 
-<img src="/assets/images/lp/mba-laundering/img01.webp" alt="戦略的進学" loading="lazy">
+![説明](../../assets/images/lp/mba-laundering/img01.webp)
 
 ## 「35歳」は限界ではない。キャリアの分岐点だ。
 

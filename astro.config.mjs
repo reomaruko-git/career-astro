@@ -3,28 +3,20 @@ import tailwindcss from "@tailwindcss/vite";
 
 // https://astro.build/config
 export default defineConfig({
+  // 1. 本番ドメイン
+  site: 'https://match-box.net', 
+  
+  // 2. ルート運用なので '/' （または記述なしでOK）
+  base: '/', 
+
   output: "static",
+  
+  // 3. URLの末尾スラッシュを付ける設定（現在の運用に合わせる）
+  trailingSlash: 'always',
+
   vite: {
     plugins: [tailwindcss()],
-    // ▼ ここから下を追加！ビルドの出力設定です
-    build: {
-      rollupOptions: {
-        output: {
-          // JSファイルの出力設定（assets/js/フォルダに、ファイル名.js で出力）
-          entryFileNames: "assets/js/[name].js",
-          chunkFileNames: "assets/js/[name].js",
-
-          // CSSや画像などの出力設定
-          assetFileNames: (assetInfo) => {
-            // CSSファイルの場合、強制的に 'style.css' という名前にする
-            if (assetInfo.name && assetInfo.name.endsWith(".css")) {
-              return "assets/css/style.css";
-            }
-            // その他のファイル（画像など）は assets/フォルダにそのままの名前で出力
-            return "assets/[name][extname]";
-          },
-        },
-      },
-    },
+    // build: { rollupOptions: { ... } } は削除してOK！
+    // Astroの標準の最適化エンジンがフル稼働します。
   },
 });
