@@ -63,15 +63,15 @@ const {
     <slot />
 
     <footer class="bg-[#1e3a5f] text-[#E0F2FE] py-12 px-4 mt-auto">
-      <div class="max-w-4xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 text-sm">
+      <div class="max-w-4xl mx-auto flex flex-col items-center gap-6 text-sm text-center">
         <div>
-          <div class="font-bold text-xl text-white tracking-wider">
-            <img src="/assets/images/logo_wh.svg" alt="Match Box" class="h-22 w-auto" />
+          <div class="font-bold text-xl text-white tracking-wider flex justify-center">
+            <img src="/assets/images/logo_wh.svg" alt="Match Box" class="h-16 w-auto" />
           </div>
           <p class="text-xs mt-2 opacity-80">あなたの世界に、新しい可能性を。</p>
         </div>
-        <div class="text-center md:text-right">
-          <div class="mt-4 space-x-6 text-xs font-medium">
+        <div>
+          <div class="mt-2 space-x-6 text-xs font-medium">
             <a href="/company" class="hover:text-white transition">運営者情報</a>
             <a href="/privacy" class="hover:text-white transition">プライバシーポリシー</a>
           </div>
@@ -191,9 +191,9 @@ const {
       }
 
       .prose h2 {
-        font-size: 1.75rem;
+        font-size: 1.5rem;
         font-weight: 800;
-        color: var(--color-txt-main);
+        color: color-mix(in srgb, var(--color-primary), black 30%);
         position: relative;
         padding: 1.5rem 2rem;
         text-align: center;
@@ -204,18 +204,29 @@ const {
         background: linear-gradient(to right, #f5f6f8, #d5dce7);
       }
 
+      .prose h2:first-child {
+        margin-top: 0;
+      }
+
       .prose h3 {
         font-size: 1.4rem;
         font-weight: 700;
-        color: var(--color-txt-main);
+        color: color-mix(in srgb, var(--color-primary), black 30%);
         margin-top: 3rem;
         margin-bottom: 1.25rem;
         padding: 0.25rem 0 0.25rem 1rem;
         border-bottom: 2px solid #e2e8f0;
         letter-spacing: -0.01em;
       }
+      .prose h4 {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: color-mix(in srgb, var(--color-primary), black 30%);
+        margin-top: 2.5rem;
+        margin-bottom: 1rem;
+      }
       .prose p { 
-        margin-bottom: 2rem; 
+        margin-bottom: 1.75rem; 
         text-align: justify; 
       }
       .prose strong {
@@ -273,6 +284,19 @@ const {
         top: 0.2em;
         color: var(--color-primary);
         font-weight: 900;
+      }
+
+      .prose a:not(.cta-button):not(.keyword-link) {
+        color: var(--color-primary);
+        font-weight: 700;
+        text-decoration: underline;
+        text-decoration-style: dotted;
+        text-underline-offset: 4px;
+        transition: all 0.3s ease;
+      }
+      .prose a:not(.cta-button):not(.keyword-link):hover {
+        color: var(--color-accent);
+        opacity: 0.7;
       }
 
       .keyword-link,

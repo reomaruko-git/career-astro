@@ -1,88 +1,56 @@
 ---
 template: ../../components/templates/TemplateSingle.astro
-title: "「35歳限界説」を突破する。働きながら3ヶ月で最終学歴を書き換える『戦略的進学』のすすめ｜Match Box"
-heroTitle: "<span class='text-5xl md:text-7xl lg:text-8xl'>35歳限界説を<br><br class='md:hidden'><span class='text-accent'>突破せよ</span></span><br><span class='text-lg md:text-3xl block mt-4 font-bold opacity-90 tracking-normal leading-snug'>働きながら3ヶ月で“最終学歴”を書き換える<br>『戦略的進学』のすすめ</span>"
+title: "35歳からのキャリア再構築。働きながら3ヶ月で国内MBAを目指す「戦略的進学」ガイド"
+heroTitle: "<span class='text-5xl md:text-7xl lg:text-8xl'>働きながら<br><span class='text-accent'>学歴という評価軸を整える</span></span><br><span class='text-xl md:text-3xl block mt-6 font-bold opacity-90 tracking-normal leading-snug'>3ヶ月で最終学歴を更新する</span>"
 badge: "For Ambitious Business Person"
 description: "実力はあるのに書類で落ちるあなたへ。国内難関MBAを「キャリアの武器」として最短3ヶ月で手に入れる、現役会社員のための戦略的受験プログラム。"
-images: { mv: '/assets/images/lp/mba-laundering/mv_mba-laundering.png' }
+images: { mv: '/assets/images/lp/mba-laundering/mv_mba-laundering.webp' }
 colors:
   primary: "#1e3a8a"
   accent: "#ea580c"
+rankings: []
 keywords:
   - text: "MBAロンダリング"
     link: "/link/mba-laundering"
 heroCta:
-  label: "無料で合格可能性診断を受ける"
-  microCopy: "※最短ルートを確認する"
+  label: "自分が狙える国内MBAを無料相談"
+  microCopy: "※今の実力で狙える大学院を知る"
 affiliateLink: "https://www.rentracks.jp/adx/r.html?idx=0.71657.374389.10380.14817&dna=169329"
 cta:
-  title: "＼ 30代からのキャリア戦略 ／"
-  label: "無料・合格可能性診断を受ける"
-  microCopy: "※毎月先着順・完全オンライン対応"
+  title: "あなたのキャリアは、もっと高く評価されるべき"
+  label: "公式サイトで無料相談"
+  microCopy: "※登録は1分で完了"
 sticky:
-  text: "年収800万超のキャリアへ。"
-  label: "無料で合格可能性診断を受ける"
-  microCopy: "※最短ルートを確認する"
+  text: "3ヶ月でキャリアの壁を突破する"
+  label: "公式サイトで無料相談"
+  microCopy: "※登録は1分で完了"
 ---
 
-<ul data-title="この記事の対象者" class="with-title">
-  <li>実力には自信があるのに、<strong>書類選考で落とされる</strong>ことが多い</li>
-  <li>今の会社に不満はないが、<strong>「このままでいいのか」</strong>という漠然とした不安がある</li>
-  <li>転職や昇進のために<strong>「箔（ハク）」</strong>をつけたいが、数年も勉強する時間はない</li>
-</ul>
+## 現場では誰よりも成果を出している。<br>なのに、書類選考という壁がある。
 
-## 「実力主義」という言葉の裏にある、残酷な真実
+現場での実績には自信がある。<br>
 
-「仕事は成果で評価されるべきだ」
+しかし、転職市場では「学歴という評価基準」という冷徹な壁が存在します。
 
-誰もがそう信じています。しかし、ハイレイヤー転職や大手企業へのキャリアチェンジにおいて、<span class="font-bold">「学歴フィルター」という見えない天井</span>は確実に存在します。
 
-特に30歳前後になると、ポテンシャル採用の枠は消滅し、即戦力としての実績に加え、<span class="font-bold">「その実績を裏付けるバックグラウンド」</span>が厳しく問われるようになります。
+## 学問としてのMBAではない。<br>「キャリアのタグ」を書き換えるためのMBA。
 
-### 資格や英会話では、キャリアの壁は壊せない
+必要なのは、<span class="font-bold">「難関MBAホルダー」という社会的信用（タグ）</span>と、それを手に入れるための<span class="font-bold">「合格」</span>という事実だけです。
 
-「何かスキルをつけなきゃ」と、英会話や簿記などの資格取得に走る人は多いです。もちろん、それらは無駄ではありません。
+そんなあなたに提案したいのが、<span class="font-bold">社会人専門の進学支援サービス「MBAロンダリング」</span>です。
 
-しかし、ヘッドハンターや人事決裁者が履歴書を見たとき、<span class="font-bold">「最終学歴」の欄が持つインパクト</span>に勝るものは少ないのが現実です。
+<div class="my-10">
+  <a href="https://www.rentracks.jp/adx/r.html?idx=0.71657.374389.10380.14817&dna=169329" class="text-blue-600 underline font-bold hover:text-blue-800">
+    >> 職歴ベースで、狙える国内MBAを無料で確認
+  </a>
+</div>
 
-もしあなたが、今のキャリアに閉塞感を感じているなら、必要なのは小手先のスキルアップではなく、<span class="font-bold">履歴書のスペックそのものを書き換える「戦略的な一手」</span>です。
+<img src="/assets/images/lp/mba-laundering/img01.png" alt="戦略的進学" loading="lazy">
 
-## 最短3ヶ月。働きながら「国内難関MBA」を手に入れる
+## 「35歳」は限界ではない。キャリアの分岐点だ。
 
-今さら大学に入り直す時間も、海外留学する余裕もない。そんな忙しい社会人のために設計されたのが、国内MBA・MOT合格支援プログラム<a href="/link/mba-laundering">「MBAロンダリング」</a>です。
+このまま今の延長線上で働き続けるか。<br>
+それとも、3ヶ月間の投資で「MBAホルダー」としての新しいキャリアチケットを手に入れるか。
 
-これは単なる予備校ではありません。<span class="font-bold">キャリアアップに必要な「学歴」を、最短ルートで獲得するための戦略ツール</span>です。
-
-### なぜ、3ヶ月で合格できるのか？
-
-一般的な予備校が半年〜1年かけるところを、私たちはわずか3ヶ月で合格ラインまで引き上げます。その秘密は、徹底的な*「無駄の排除」*にあります。
-
-* **経営学の講義はしない：** 合格に必要なのは「研究計画書」と「面接対策」のみ。学問的な知識は入学後に学べば十分です。
-* **現役MBAホルダーによるマンツーマン：** 講師は全員、実際に働きながら難関MBAを修了し、キャリアアップを果たした「勝者」たちです。
-* **24時間オンライン対応：** 忙しい仕事の合間や、深夜の時間帯でも質問可能。場所と時間を選びません。
-
-このプログラムは、**「学問を深めたい人」には不向き**かもしれません。しかし、<span class="font-bold">「学歴という武器を手に入れ、年収とキャリアを本気で上げたい人」</span>にとっては、これ以上ない選択肢となるはずです。
-
-## あなたのキャリアは、もっと高く売れる
-
-想像してください。今の職務経歴に<span class="font-bold">「国内難関MBA修了」</span>という一行が加わった未来を。
-
-* 書類選考の通過率が劇的に向上する
-* 転職エージェントから紹介される案件の年収レンジが上がる
-* 社内での発言権が増し、希望するポジションへの道が開ける
-
-これらは決して夢物語ではなく、<a href="/link/mba-laundering">MBAロンダリング</a>を利用してキャリアを再構築した多くの修了生が手にしている現実です。
-
-「35歳限界説」を信じて諦めるか、それとも賢く裏ルートを使って突破するか。
-
-<span class="font-bold">社会人のキャリア形成は、情報戦です。</span>
-このページに辿り着いた賢明なあなたなら、どちらを選ぶべきか、もうお分かりのはずです。
-
-## まずは「合格可能性」を知ることから
-
-「自分なんかが難関MBAに受かるのか？」
-「どの大学院なら、今の仕事と両立できるのか？」
-
-そう思われた方は、まず**「合格可能性診断」**を受けてみてください。あなたの現在の経歴と目標から、<span class="font-bold">狙える大学院と合格の可能性を具体的に提示</span>します。
-
-ただし、質の高いマンツーマン指導を維持するため、毎月の受講枠には限りがあります。本気でキャリアを変えたい方は、枠が埋まる前に<a href="/link/mba-laundering">こちらから診断の詳細を確認</a>してください。
+まずは、あなたの現在のキャリアが、どの大学院であれば高く評価されるのか。<br>
+あなたが今狙える国内MBAを、無料で相談できます。

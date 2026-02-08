@@ -20,9 +20,10 @@ const accentColor = safeColors.accent || '#F39C12';
         </div>
       </div>
     ) : null}
-    <a href={link} class="cta-button" style={`background-color: ${accentColor};`}>
-      <span class="micro">{displayMicroCopy}</span>
-      <span class="main">{displayLabel} <i class="fas fa-chevron-right"></i></span>
+    <a href={link} class="cta-button group" style={`background-color: ${accentColor};`}>
+      <span class="absolute inset-0 rounded-xl overflow-hidden shiny-effect"></span>
+      <span class="micro relative z-10">{displayMicroCopy}</span>
+      <span class="main relative z-10">{displayLabel} <i class="fas fa-chevron-right"></i></span>
     </a>
   </div>
 </div>
@@ -87,6 +88,8 @@ const accentColor = safeColors.accent || '#F39C12';
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     text-decoration: none;
     transition: all 0.2s;
+    position: relative;
+    overflow: hidden;
   }
 
   .cta-button:hover {
@@ -121,5 +124,23 @@ const accentColor = safeColors.accent || '#F39C12';
     .cta-banner {
       display: none;
     }
+  }
+
+  .shiny-effect::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right, transparent 0%, rgba(255,255,255,0.4) 50%, transparent 100%);
+    transform: skewX(-25deg);
+    animation: shine 4s infinite;
+    pointer-events: none;
+  }
+  @keyframes shine {
+    0% { left: -100%; }
+    20% { left: 200%; }
+    100% { left: 200%; }
   }
 </style>

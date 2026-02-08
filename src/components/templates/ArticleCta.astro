@@ -14,15 +14,16 @@ const {
   label = "公式サイトで詳細を見る",
   microCopy = "※登録は簡単1分程度で完了します",
   color = "var(--color-accent)",
-  icon = "fa-solid fa-arrow-right",
+  icon = "fa-solid fa-chevron-right",
 } = Astro.props as Props;
 ---
-<div class="cta-container text-center mt-8 mb-4">
+<div class="cta-container text-center mt-24 pt-10 mb-12">
   {title && <p class="text-sm font-bold text-accent mb-2 !text-center">{title}</p>}
-  <a href={href} class="cta-button" target="_blank" rel="noopener noreferrer">
-    <span class="absolute inset-0 shiny-effect"></span>
-    <span class="relative z-10">
-      <i class={`${icon} mr-2`}></i>{label}
+  <a href={href} class="cta-button group" target="_blank" rel="noopener noreferrer">
+    <span class="absolute inset-0 rounded-lg overflow-hidden shiny-effect"></span>
+    <span class="relative z-10 flex items-center justify-center gap-3">
+      <span>{label}</span>
+      <i class={`${icon}`}></i>
     </span>
   </a>
   {microCopy && <span class="text-xs text-gray-500 mt-2 block">{microCopy}</span>}
@@ -51,16 +52,17 @@ const {
     box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.2);
     opacity: 0.9;
   }
-  .shiny-effect::before {
+  .shiny-effect::after {
     content: '';
     position: absolute;
     top: 0;
     left: -100%;
     width: 50%;
     height: 100%;
-    background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.5) 100%);
+    background: linear-gradient(to right, transparent 0%, rgba(255,255,255,0.4) 50%, transparent 100%);
     transform: skewX(-25deg);
-    animation: shine 3s infinite;
+    animation: shine 4s infinite;
+    pointer-events: none;
   }
   @keyframes shine {
     0% { left: -100%; }
