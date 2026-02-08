@@ -27,10 +27,10 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const rawOgImage = data.images?.og || rawMvImage;
 let ogImageUrl;
 if (typeof rawOgImage === 'string') {
-  ogImageUrl = rawOgImage.startsWith('http') ? rawOgImage : `https://match-box.net${rawOgImage}`;
+  ogImageUrl = rawOgImage.startsWith('http') ? rawOgImage : new URL(rawOgImage, Astro.site).href;
 } else {
   // image() オブジェクトの場合は .src を使って絶対URLを構築
-  ogImageUrl = new URL(rawOgImage.src, Astro.site);
+  ogImageUrl = new URL(rawOgImage.src, Astro.site).href;
 }
 
 // --- 5. 配色設定 ---

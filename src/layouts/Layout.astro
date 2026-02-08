@@ -18,6 +18,8 @@ const {
   canonical,
   ogImage,
 } = Astro.props;
+
+const GTM_ID = "GTM-5PW3KRHH";
 ---
 
 <!doctype html>
@@ -46,7 +48,7 @@ const {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
     {import.meta.env.PROD && (
-      <script is:inline>
+      <script is:inline define:vars={{ GTM_ID }}>
         (function (w, d, s, l, i) {
           w[l] = w[l] || [];
           w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
@@ -56,14 +58,14 @@ const {
           j.async = true;
           j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
           f.parentNode.insertBefore(j, f);
-        })(window, document, "script", "dataLayer", "GTM-TBTHH8XN");
+        })(window, document, "script", "dataLayer", GTM_ID);
       </script>
     )}
   </head>
 
   <body class={bodyClass}>
     {import.meta.env.PROD && (
-      <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5PW3KRHH" height="0" width="0" style="display: none; visibility: hidden"></iframe></noscript>
+      <noscript><iframe src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`} height="0" width="0" style="display: none; visibility: hidden"></iframe></noscript>
     )}
     
     {showHeader && (
@@ -447,7 +449,7 @@ const {
         left: -100%;
         width: 50%;
         height: 100%;
-        background: linear-gradient(to right, transparent 0%, rgba(255,255,255,0.7) 50%, transparent 100%);
+        background: linear-gradient(to right, transparent 0%, rgba(255,255,255,0.4) 50%, transparent 100%);
         transform: skewX(-25deg);
         animation: shine 4s infinite;
         pointer-events: none;

@@ -1,4 +1,4 @@
 User-agent: \*
 Allow: /
 
-Sitemap: https://nurse-job-support.com/sitemap.xml
+Sitemap: https://match-box.net/sitemap.xml
