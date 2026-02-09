@@ -14,11 +14,11 @@ colors:
 rankings: []
 keywords:
   - text: "MBAロンダリング"
-    link: "/link/mba-laundering"
+    link: "/link/mba-laundering/"
 heroCta:
   label: "自分が狙える国内MBAを無料相談"
   microCopy: "※今の実力で狙える大学院を知る"
-affiliateLink: "https://www.rentracks.jp/adx/r.html?idx=0.71657.374389.10380.14817&dna=169329"
+affiliateLink: "https://www.rentracks.jp/adx/r.html?idx=0.71657.374964.10380.14817&dna=169329"
 cta:
   title: "あなたのキャリアは、もっと高く評価されるべき"
   label: "公式サイトで無料相談"
@@ -43,10 +43,11 @@ sticky:
 そんなあなたに提案したいのが、<span class="font-bold">社会人専門の進学支援サービス「MBAロンダリング」</span>です。
 
 <div class="my-10">
-  <a href="https://www.rentracks.jp/adx/r.html?idx=0.71657.374389.10380.14817&dna=169329" class="text-blue-600 underline font-bold hover:text-blue-800">
+  <a href="link/mba-laundering/" class="text-blue-600 underline font-bold hover:text-blue-800">
     >> 職歴ベースで、狙える国内MBAを無料で確認
   </a>
 </div>
+<img src="https://www.rentracks.jp/adx/p.gifx?idx=0.71657.374964.10380.14817&dna=169329" border="0" height="1" width="1">
 
 ![説明](../../assets/images/lp/mba-laundering/img01.webp)
 

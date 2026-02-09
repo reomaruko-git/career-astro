@@ -36,7 +36,7 @@ const defaultColors = {
   link: '#2563eb',
 };
 const colors = { ...defaultColors, ...(data.colors || {}) };
-const affiliateLink = `/link/${entry.slug}`;
+const affiliateLink = `/link/${entry.slug}/`;
 const keywords = [
   ...(data.title ? [{ text: data.title, link: affiliateLink }] : []),
   ...(data.keywords || [])
