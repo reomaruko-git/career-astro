@@ -1,9 +1,9 @@
 ---
 template: ../../components/templates/TemplateSingle.astro
 title: "Enjoy Tech!（エンジョイテック）| 挫折経験者特化の月額制スクール"
-heroTitle: "<span class='text-4xl md:text-6xl'>多くの挫折は<br><span class='text-accent'>あなたのせいじゃない。</span></span><br><span class='text-lg md:text-2xl block mt-6 font-bold opacity-90 tracking-normal leading-relaxed'>「質問できない孤独」を終わらせる。<br>月額制×オーダーメイド指導のEnjoy Tech!</span>"
+heroTitle: "<span class='text-[42px] md:text-7xl lg:text-8xl'>挫折経験者こそ、<br><span class='text-accent'>次は成功できる。</span></span><br><span class='text-xl md:text-3xl block mt-6 font-bold opacity-90 tracking-normal leading-snug'>月額制・無償延長保証で安心の再挑戦。<br>Enjoy Tech!</span>"
 badge: "Re-Challenge & Career Up"
-description: "Enjoy Tech!（エンジョイテック）は、独学や他スクールで挫折した社会人、就活に不安な大学生のための再挑戦スクール。決まったカリキュラムのない「オーダーメイド型」指導で、Webデザインやプログラミングを確実に習得。"
+description: "月額制・無償延長保証で納得いくまで学べる。あなた専用カリキュラムでWebデザイン・プログラミングを習得。社会人の副業、学生の就活まで完全サポート。"
 images:
   mv: "../../assets/images/lp/enjoy-tech/mv.webp"
   mvAlt: "Enjoy Tech! メンターと伴走する安心感"
@@ -17,7 +17,7 @@ keywords:
   - text: "Enjoy Tech!"
     link: "/link/enjoy-tech/"
 heroCta:
-  label: "無料カウンセリングで相談する"
+  label: "無料カウンセリングで相談"
   microCopy: "※無理な勧誘は一切ありません"
 affiliateLink: "https://www.rentracks.jp/adx/r.html?idx=0.71657.374964.9193.13070&dna=152743"
 cta:
@@ -53,8 +53,6 @@ Enjoy Tech! なら、その悩みを<span class="font-bold">仕組み</span>で�
 社会人には<span class="font-bold">「副業案件の獲得サポート」</span>、大学生には<span class="font-bold">「ES添削・面接対策」</span>まで、出口戦略を徹底サポートします。
 
 ## <span class="text-accent">Offer</span><br>まずは「無料カウンセリング」であなたの学習プランを相談
-
-**60秒で予約完了。無理な勧誘なし。**
 
 <a href="/link/enjoy-tech/" class="text-blue-600 underline font-bold hover:text-blue-800">>> 公式サイトで無料カウンセリングを予約する</a>
 <img src="https://www.rentracks.jp/adx/p.gifx?idx=0.71657.374964.9193.13070&dna=152743" border="0" height="1" width="1">
