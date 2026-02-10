@@ -12,10 +12,10 @@ colors:
   primary: "#0056b3"
   accent: "#fca311"
 rankings: []
-canonical: "https://match-box.net/engineer-challenge/"
+canonical: "https://match-box.net/re-challenge/"
 keywords:
   - text: "Enjoy Tech!"
-    link: "/link/engineer-challenge/"
+    link: "/link/re-challenge/"
 heroCta:
   label: "無料カウンセリングで相談する"
   microCopy: "※無理な勧誘は一切ありません"
@@ -49,5 +49,5 @@ Enjoy Tech! （エンジョイテック）は、月額サブスクリプショ�
 
 **「今度こそ」を最後の挑戦に。無料カウンセリングは60秒で予約完了。**
 
-<a href="/link/engineer-challenge/" class="text-blue-600 underline font-bold hover:text-blue-800">>> 公式サイトで無料カウンセリングを予約する</a>
+<a href="/link/re-challenge/" class="text-blue-600 underline font-bold hover:text-blue-800">>> 公式サイトで無料カウンセリングを予約する</a>
 <img src="https://www.rentracks.jp/adx/p.gifx?idx=0.71657.374964.9193.13070&dna=152743" border="0" height="1" width="1">
