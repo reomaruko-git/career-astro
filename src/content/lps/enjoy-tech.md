@@ -1,9 +1,9 @@
 ---
 template: ../../components/templates/TemplateSingle.astro
-title: "Enjoy Tech!（エンジョイテック）| 挫折経験者特化の月額制スクール"
-heroTitle: "<span class='text-[42px] md:text-7xl lg:text-8xl'>挫折経験者こそ、<br><span class='text-accent'>次は成功できる。</span></span><br><span class='text-xl md:text-3xl block mt-6 font-bold opacity-90 tracking-normal leading-snug'>月額制・無償延長保証で安心の再挑戦。<br>Enjoy Tech!</span>"
+title: "Enjoy Tech!（エンジョイテック）| 挫折経験者こその月額制スクール"
+heroTitle: "<span class='text-[42px] md:text-7xl lg:text-8xl'>挫折経験者こそ、<br><span class='text-accent'>成功を目指せる</span></span><br><span class='text-xl md:text-3xl block mt-6 font-bold opacity-90 tracking-normal leading-snug'>月額制・延長サポートで安心の再挑戦。<br>Enjoy Tech!</span>"
 badge: "Re-Challenge & Career Up"
-description: "月額制・無償延長保証で納得いくまで学べる。あなた専用カリキュラムでWebデザイン・プログラミングを習得。社会人の副業、学生の就活まで完全サポート。"
+description: "月額制・延長サポートで納得いくまで学べる。あなた専用カリキュラムでWebデザイン・プログラミングを習得。社会人の副業、学生の就活まで手厚くサポート。"
 images:
   mv: "../../assets/images/lp/enjoy-tech/mv.webp"
   mvAlt: "Enjoy Tech! メンターと伴走する安心感"
@@ -25,7 +25,7 @@ cta:
   label: "公式サイトで詳細を見る"
   microCopy: "※60秒で予約完了・オンライン実施"
 sticky:
-  text: "月額制・延長保証で再挑戦"
+  text: "月額制・延長サポートで再挑戦"
   label: "無料カウンセリング"
   microCopy: "※無理な勧誘は一切ありません"
 ---
@@ -37,18 +37,17 @@ sticky:
 * 就活の「ガクチカ」に書ける実績がない
 * 独学で挫折したが、諦めたくない
 
-Enjoy Tech! なら、その悩みを<span class="font-bold">仕組み</span>で解決します。
-
+Enjoy Tech! なら、その悩みを解決に導く仕組みがあります。
 
 ## <span class="text-accent">Solution</span><br>Enjoy Tech! が選ばれる3つの理由
 
-### ✓ 納得いくまで学べる「無償延長保証」
-「期間内に終わらなかったら？」という不安は不要。万が一カリキュラムが終わらなかった場合、受講期間を*無料*で延長可能です。
+### ✓ 納得いくまで学べる
+「期間内に終わらなかったら？」という不安は不要。万が一カリキュラムが終わらなかった場合、受講期間の延長サポートがあります。
 
 ### ✓ あなた専用カリキュラムで作りたいものを作る
 決まった教科書はありません。<span class="font-bold">「Webデザインを学びたい」「就活用のポートフォリオを作りたい」</span>など、あなたのゴールから逆算した学習ロードマップを作成します。
 
-### ✓ 副業案件紹介・就活サポートまで完全伴走
+### ✓ 副業案件獲得・就活サポート
 豊富な開発実績と人材紹介ネットワークを活用。
 社会人には<span class="font-bold">「副業案件の獲得サポート」</span>、大学生には<span class="font-bold">「ES添削・面接対策」</span>まで、出口戦略を徹底サポートします。
 
