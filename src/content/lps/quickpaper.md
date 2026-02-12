@@ -46,7 +46,7 @@ B2Bマーケターなら誰もが理解しているこの事実の裏には、<s
 そんなジレンマを抱えていませんか？
 
 <div class="my-8">
-  <a href="link/quickpaper/" class="text-primary font-bold underline underline-offset-4 decoration-primary/40 hover:decoration-primary transition-all">
+  <a href="/link/quickpaper/" class="text-primary font-bold underline underline-offset-4 decoration-primary/40 hover:decoration-primary transition-all">
     >> 制作コストと時間を大幅に削減する「QuickPaper」の詳細を見る
   </a>
 </div>
@@ -83,7 +83,7 @@ QuickPaperは、<span class="font-bold text-slate-900">同一タイトルを*1�
 * <span class="font-bold text-accent">セールス・マーケティング (168タイトル):</span> MA活用、インサイドセールス、SFA定着
 
 <div class="my-10 text-left">
-  <a href="link/quickpaper/" class="text-primary font-bold underline underline-offset-4 decoration-primary/40 hover:decoration-primary transition-all text-xl">
+  <a href="/link/quickpaper/" class="text-primary font-bold underline underline-offset-4 decoration-primary/40 hover:decoration-primary transition-all text-xl">
     >> 今すぐ自社領域のタイトル在庫を確認する
   </a>
   <p class="text-center text-xs mt-3 text-slate-500">※登録不要で構成案をプレビューできます</p>
