@@ -44,7 +44,7 @@ sticky:
 そんなあなたに提案したいのが、<span class="font-bold">社会人専門の進学支援サービス「MBAロンダリング」</span>です。
 
 <div class="my-10">
-  <a href="/link/mba-laundering/" class="text-blue-600 underline font-bold hover:text-blue-800">
+  <a href="/link/mba-laundering/" class="underline font-bold">
     >> 職歴ベースで、狙える国内MBAを無料で確認
   </a>
 </div>

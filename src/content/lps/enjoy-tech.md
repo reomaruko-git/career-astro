@@ -53,5 +53,5 @@ Enjoy Tech! なら、その悩みを解決に導く仕組みがあります。
 
 ## <span class="text-accent">Offer</span><br>まずは「無料カウンセリング」であなたの学習プランを相談
 
-<a href="/link/enjoy-tech/" class="text-blue-600 underline font-bold hover:text-blue-800">>> 公式サイトで無料カウンセリングを予約する</a>
+<a href="/link/enjoy-tech/" class="underline font-bold">>> 公式サイトで無料カウンセリングを予約する</a>
 <img src="https://www.rentracks.jp/adx/p.gifx?idx=0.71657.374964.9193.13070&dna=152743" border="0" height="1" width="1">
