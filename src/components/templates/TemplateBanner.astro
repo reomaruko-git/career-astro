@@ -94,10 +94,6 @@ const bannerAlt = banner?.alt || '公式サイトで詳細を見る';
       <section class="relative z-20 -mt-20 md:-mt-10 mb-0">
         <div class="max-w-3xl mx-auto flex flex-col items-center px-4">
           <div class="bg-white rounded-2xl shadow-xl p-6 md:p-8 flex flex-col items-center ring-1 ring-black/5">
-            <p class="text-sm font-bold text-slate-600 mb-4 tracking-wide">
-              <i class="fa-solid fa-bullhorn text-accent mr-1.5"></i>公式サイトのご案内
-            </p>
-
             {banner.trackingPixel && (
               <img src={banner.trackingPixel} border="0" height="1" width="1" alt="" class="absolute" />
             )}
