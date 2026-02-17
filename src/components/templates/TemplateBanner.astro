@@ -65,7 +65,7 @@ const bannerAlt = banner?.alt || '公式サイトで詳細を見る';
   <div class="template-wrapper min-h-screen bg-slate-50 text-txt-main md:pb-0">
 
     {/* ===== ヒーローセクション ===== */}
-    <section class="relative min-h-[340px] md:min-h-[560px] flex items-start justify-center overflow-hidden pt-[40px] pb-20 md:pt-16 md:pb-20">
+    <section class="relative min-h-[340px] md:min-h-[560px] flex items-start justify-center overflow-hidden pt-[40px] pb-64 md:pt-16 md:pb-80">
       <div class="absolute inset-0 z-0">
         {typeof mvImage === 'string' ? (
           <img src={mvImage} alt={mvAlt} class="w-full h-full object-cover animate-fade-in" />
@@ -74,6 +74,7 @@ const bannerAlt = banner?.alt || '公式サイトで詳細を見る';
         )}
         <div class="absolute inset-0 bg-[radial-gradient(#ffffff_1.5px,transparent_1.5px)] [background-size:24px_24px] opacity-20"></div>
         <div class="absolute inset-0 bg-gradient-to-t from-gray-900/95 via-gray-900/60 to-gray-900/30"></div>
+        <div class="absolute bottom-0 left-0 w-full h-80 md:h-[30rem] bg-gradient-to-b from-transparent to-slate-50"></div>
       </div>
 
       <span class="absolute top-3 right-3 z-20 text-[10px] text-white/50 font-medium tracking-wider leading-none border border-white/30 rounded px-1.5 py-0.5">PR</span>
@@ -93,7 +94,7 @@ const bannerAlt = banner?.alt || '公式サイトで詳細を見る';
 
     {/* ===== バナーセクション（ファーストビュー直下） ===== */}
     {banner && (
-      <section class="relative z-20 -mt-10 mb-0">
+      <section class="relative z-20 -mt-56 md:-mt-72 mb-0">
         <div class="max-w-3xl mx-auto flex flex-col items-center px-4">
           <div class="bg-white rounded-2xl shadow-xl p-6 md:p-8 flex flex-col items-center ring-1 ring-black/5">
             {banner.trackingPixel && (

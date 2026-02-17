@@ -53,13 +53,24 @@ const colors = { ...defaultColors, ...(data.colors || {}) };
   ogImage={ogImageUrl}
 >
   <div class="bg-slate-50 min-h-screen pb-12">
-    <header class="text-white py-12 md:py-20 text-center px-4" style={{ backgroundColor: colors.primary }}>
-      <div class="max-w-4xl mx-auto">
-        <h1 class="text-3xl md:text-5xl font-extrabold leading-tight tracking-tighter" set:html={data.heroTitle || data.texts?.mvCatch || data.title} />
+    <section class="relative min-h-[400px] md:min-h-[500px] flex items-start justify-center overflow-hidden pt-20 pb-32 md:pt-24 md:pb-48">
+      <div class="absolute inset-0 z-0">
+        {typeof rawMvImage === 'string' ? (
+          <img src={rawMvImage} alt={mvAlt} class="w-full h-full object-cover animate-fade-in" />
+        ) : (
+          <Image src={rawMvImage} alt={mvAlt} class="w-full h-full object-cover animate-fade-in" loading="eager" />
+        )}
+        <div class="absolute inset-0 bg-[radial-gradient(#ffffff_1.5px,transparent_1.5px)] [background-size:24px_24px] opacity-20"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/95 via-gray-900/60 to-gray-900/30"></div>
+        <div class="absolute bottom-0 left-0 w-full h-40 md:h-64 bg-gradient-to-b from-transparent to-slate-50"></div>
       </div>
-    </header>
 
-    <main class="max-w-4xl mx-auto px-4 -mt-8 md:-mt-12 relative z-10">
+      <div class="relative z-10 max-w-4xl mx-auto px-4 text-center">
+        <h1 class="text-3xl md:text-5xl font-extrabold leading-tight tracking-tighter text-white drop-shadow-md" set:html={data.heroTitle || data.texts?.mvCatch || data.title} />
+      </div>
+    </section>
+
+    <main class="max-w-4xl mx-auto px-4 -mt-16 md:-mt-24 relative z-10">
       {/* 導入文 */}
       <div class="bg-white p-8 md:p-12 rounded-2xl shadow-xl mb-12 prose prose-lg max-w-none text-slate-700 leading-relaxed">
         <Content />
@@ -120,3 +131,31 @@ const colors = { ...defaultColors, ...(data.colors || {}) };
     </main>
   </div>
 </BaseLayout>
+
+<style>
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  .animate-fade-in {
+    animation: fadeIn 2s ease-out forwards;
+  }
+
+  .shiny-effect::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right, transparent 0%, rgba(255,255,255,0.4) 50%, transparent 100%);
+    transform: skewX(-25deg);
+    animation: shine 4s infinite;
+    pointer-events: none;
+  }
+  @keyframes shine {
+    0% { left: -100%; }
+    20% { left: 200%; }
+    100% { left: 200%; }
+  }
+</style>
