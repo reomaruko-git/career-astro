@@ -1,8 +1,8 @@
 ---
 pageLayout: banner
-title: "創業78年。傷のあるブランド品も高価買取。KOMEHYOの「メンテナンス力」という裏付け"
+title: "創業78年。傷のあるブランド品も高価買取。「メンテナンス力」という裏付け"
 heroTitle: "<span class='text-5xl md:text-6xl lg:text-7xl tracking-tighter font-serif leading-none md:leading-tight' style='font-family: serif !important;'>その傷、<br><span class='text-accent'>諦めるには早すぎます。</span></span><br><span class='text-lg md:text-2xl block mt-4 md:mt-8 font-bold opacity-80 tracking-normal leading-snug font-sans'>創業78年・東証上場。<br>KOMEHYOが「訳あり」でも高く買える理由。</span>"
-description: "「傷があるから売れない」は誤解です。自社メンテナンス部門とグローバルオークションを持つKOMEHYOだからこそ提示できる、納得の査定額があります。"
+description: "「傷があるから売れない」は誤解です。自社メンテナンス部門とグローバルオークションを持つ会社だからこそ提示できる、納得の査定額があります。"
 images:
   mv: "../../assets/images/lp/komehyo/mv.webp"
   mvAlt: "KOMEHYOの鑑定士が時計を査定している様子"
@@ -11,7 +11,7 @@ colors:
   primary: "#1A1A1A"
   accent: "#C5A065"
 rankings: []
-canonical: "https://match-box.net/komehyo/"
+canonical: "https://match-box.net/k-kaitori/"
 keywords:
   - text: "KOMEHYO"
     link: "/link/komehyo/"
@@ -20,7 +20,7 @@ heroCta:
   microCopy: "※送料・キャンセル料・返送料すべて無料"
 affiliateLink: "https://px.a8.net/svt/ejp?a8mat=4AXE4D+FTRX0Q+3VEM+BXQOH"
 cta:
-  title: "査定だけの利用も、歓迎です"
+  title: "査定だけの利用もOK"
   label: "公式サイトで宅配買取を申込む"
   microCopy: "※Web入力は約1分で完了します"
 sticky:
@@ -102,7 +102,6 @@ banner:
     > 公式サイトで無料査定を申し込む
   </a>
 </div>
-<img src="https://www11.a8.net/0.gif?a8mat=4AXE4D+FTRX0Q+3VEM+BXQOH" alt="" width="1" height="1" border="0" />
 
 ## このような状態でも、査定対象です。
 
@@ -153,4 +152,3 @@ Webフォームからの入力は1分程度で完了します。まずは無料�
     > 【KOMEHYO】公式サイトで無料査定を依頼する
   </a>
 </div>
-<img src="https://www11.a8.net/0.gif?a8mat=4AXE4D+FTRX0Q+3VEM+BXQOH" alt="" width="1" height="1" border="0" />
